@@ -31,13 +31,13 @@ SRC					=	main.c           \
 						ft_new_info.c    \
 						ft_insert.c      \
 						ft_comparators.c \
-						parser.c 		 \
-						ft_print.c 		 \
-						ft_ls.c 		 
+						parser.c         \
+						ft_print.c       \
+						ft_ls.c
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
-all: 
+all:
 	@$(MAKE) $(LIBFT_NAME)
 	@$(MAKE) $(NAME)
 

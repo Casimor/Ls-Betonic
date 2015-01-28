@@ -6,21 +6,26 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:57 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 11:31:10 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 18:13:19 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_ls.h"
-
+#include <stdio.h>
 int		main(int argc, char **argv)
 {
 	t_dirent		*dirent;
 	DIR				*dir;
 	t_list			*list;
 	t_info			*info;
-
+	t_list			*indexlst;
 	(void)argc;
-	parser(argv);
+	indexlst = parser(argv);
+	while (indexlst)
+	{
+		printf("[%s]\n", (char*)indexlst->content);
+		indexlst = indexlst->next;
+	}
 	list = NULL;
 	dir = opendir (".");
 	while ((dirent = readdir(dir)))

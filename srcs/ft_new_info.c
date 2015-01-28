@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_new_info.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2013/12/11 18:23:53 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 17:34:54 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ static char		*ft_get_time(t_time *time2)
 	date[12] = '\0';
 	return (date);
 }
-
-#include <stdio.h>
 
 t_info			*ft_new_info(t_dirent *dirent, char const *path)
 {

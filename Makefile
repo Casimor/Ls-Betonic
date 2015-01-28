@@ -22,7 +22,7 @@ LIBFT_NAME			=	$(LIBFT_DIR)/libft.a
 LIBFT_INCLUDE_DIR	=	$(LIBFT_DIR)/includes
 
 COMPILER			=	gcc
-CFLAGS				=	-O3 -Wall -Wextra -Werror -c \
+CFLAGS				=	-g3 -O3 -Wall -Wextra -Werror -c \
 						-I$(INCLUDE_DIR) -I$(LIBFT_INCLUDE_DIR)
 LFLAGS				=	-L$(LIBFT_DIR) -l$(LIBFT) -o
 

@@ -6,26 +6,58 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 12:36:10 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 18:15:02 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-static void	parse_cmd(char *cmd)
+#include <stdio.h>
+static void	parse_cmd(char *cmd, t_opt *opt)
 {
-	(void)cmd;
+	while (*cmd)
+	{
+		if (!opt->l_flag)
+			opt->l_flag |= (*cmd == 'l') ? 1 : 0;
+		if (!opt->a_flag)
+			opt->a_flag |= (*cmd == 'a') ? 1 : 0;
+		if (!opt->r_flag)
+			opt->r_flag |= (*cmd == 'r') ? 1 : 0;
+		if (!opt->t_flag)
+			opt->t_flag |= (*cmd == 't') ? 1 : 0;
+		if (!opt->re_flag)
+			opt->re_flag |= (*cmd == 'R') ? 1 : 0;
+		cmd++;
+	}
+	printf("l: %d\n", opt->l_flag);
+	printf("a: %d\n", opt->a_flag);
+	printf("r: %d\n", opt->r_flag);
+	printf("t: %d\n", opt->t_flag);
+	printf("R: %d\n", opt->re_flag);
 }
 
-void		parser(char **args)
+t_list		*parser(char **argv)
 {
-	int		i;
+	t_opt	*opt;
+	t_list	*index_lst;
+	size_t	index;
 
-	i = 0;
-	while (args[i])
+	index_lst = 0;
+	index = 1;
+	opt = ft_memalloc(sizeof(opt));
+	if (!opt)
+		return 0;
+	opt->l_flag = 0;
+	opt->a_flag = 0;
+	opt->r_flag = 0;
+	opt->t_flag = 0;
+	opt->re_flag = 0;
+	while (argv[index])
 	{
-		if (args[i][0] == '-')
-			parse_cmd(args[i]);
-		i++;
+		if (argv[index][0] == '-')
+			parse_cmd(argv[index], opt);
+		else
+			ft_lstpushback(&index_lst, ft_lstnew(argv[index], ft_strlen(argv[index])));
+		index++;
 	}
+	return (index_lst);
 }

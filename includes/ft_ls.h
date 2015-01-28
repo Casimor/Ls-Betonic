@@ -6,11 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/01/28 15:36:28 by bchevali         ###   ########.fr       */
-=======
-/*   Updated: 2015/01/28 17:36:04 by ochase           ###   ########.fr       */
->>>>>>> 089016a5518e7833014de10045d49b4e18436ab0
+/*   Updated: 2015/01/28 19:13:03 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +63,8 @@ void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
-t_list			*parser(char **args);
+void			ft_print(t_opt *opt, t_list *list);
+int				ft_ls(char *arg, t_opt *opt, size_t nb_dir);
+t_list			*parser(char **args, t_opt *opt);
 
 #endif

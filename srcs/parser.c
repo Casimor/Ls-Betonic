@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 18:15:02 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 19:13:37 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,13 @@ static void	parse_cmd(char *cmd, t_opt *opt)
 	printf("R: %d\n", opt->re_flag);
 }
 
-t_list		*parser(char **argv)
+t_list		*parser(char **argv, t_opt *opt)
 {
-	t_opt	*opt;
 	t_list	*index_lst;
 	size_t	index;
 
 	index_lst = 0;
 	index = 1;
-	opt = ft_memalloc(sizeof(opt));
-	if (!opt)
-		return 0;
 	opt->l_flag = 0;
 	opt->a_flag = 0;
 	opt->r_flag = 0;

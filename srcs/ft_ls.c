@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/28 19:44:20 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/28 20:17:29 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include <stdio.h>
 
-int		ft_ls(char *arg, t_opt *opt, size_t nb_dir)
+int		ft_ls(char *arg, t_opt *opt)
 {
 	t_dirent	*dirent;
 	DIR			*dir;
@@ -24,7 +24,6 @@ int		ft_ls(char *arg, t_opt *opt, size_t nb_dir)
 	list = NULL;
 	if ((dir = opendir(arg)))
 	{
-		(void)nb_dir;
 		while ((dirent = readdir(dir)))
 		{
 			info = ft_new_info(dirent, arg);

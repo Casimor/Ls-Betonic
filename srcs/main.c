@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:57 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 19:30:00 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/28 19:39:42 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ int		main(int argc, char **argv)
 	nb_dir = ft_lstsize(&n_dir);
 	while (n_dir)
 	{
-		printf("lol\n");
 		ft_ls((char *)n_dir->content, opt, nb_dir);
 		n_dir = n_dir->next;
-		printf("lil\n");
 	}
 	return (0);
 }

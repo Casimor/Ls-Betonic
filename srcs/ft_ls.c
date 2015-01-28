@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/28 19:36:09 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 19:44:20 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_ls(char *arg, t_opt *opt, size_t nb_dir)
 	t_list		*list;
 	t_info		*info;
 
+	(void)opt;
 	list = NULL;
 	if ((dir = opendir(arg)))
 	{
@@ -28,13 +29,10 @@ int		ft_ls(char *arg, t_opt *opt, size_t nb_dir)
 		{
 			info = ft_new_info(dirent, arg);
 			ft_lstsort(&list, info, ft_cmp_lexico, 0);
-			// if (nb_dir > 1)
-			// {
-			// 	ft_putstr(dirent->d_name);
-			// 	ft_putendl(":");
-			// }
-			ft_print(opt, list);
+			// ft_putstr(dirent->d_name);
+			// ft_putendl(" ");
 		}
+		ft_print(opt, list);
 		closedir (dir);
 	}
 	// while (list)

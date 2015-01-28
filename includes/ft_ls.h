@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/01/28 19:13:03 by bchevali         ###   ########.fr       */
+=======
+/*   Updated: 2015/01/28 19:06:08 by ochase           ###   ########.fr       */
+>>>>>>> ebe88818b60e117e43e118ff9fe9365782efaf73
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LS_H
 # define FT_LS_H
 
-# include <dirent.h>
-# include <unistd.h>
 # include <stdlib.h>
 # include <pwd.h>
 # include <uuid/uuid.h>

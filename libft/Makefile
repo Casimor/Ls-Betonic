@@ -121,7 +121,8 @@ OBJ			=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 COMPILER	=	gcc
 CFLAGS		=	-O3 -Wall -Wextra -Werror -I$(INCLUDE_DIR) -c
 
-all: $(NAME)
+all: 
+	@$(MAKE) $(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $@ $^
@@ -133,13 +134,15 @@ $(OBJ_DIR):
 	mkdir -p $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(COMPILER) $(CFLAGS) $^ -o $@
+	@$(COMPILER) $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJ)
-	rm -df $(OBJ_DIR)
+	@rm -f $(OBJ)
+	@rm -df $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
-re: fclean all
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all

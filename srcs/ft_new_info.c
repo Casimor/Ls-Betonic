@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_new_info.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 17:34:54 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/28 23:26:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static char		*ft_get_time(t_time *time2)
 
 	current_time = time(NULL);
 	date = ft_strdup(ctime(&time2->tv_sec) + 4);
-	if (((current_time - time2->tv_sec) > SIX_MONTH)
-		|| ((current_time - time2->tv_sec) < -SIX_MONTH))
+	if (((current_time - time2->tv_sec) > SIX_MONTHS)
+		|| ((current_time - time2->tv_sec) < -SIX_MONTHS))
 	{
 		ft_strncpy(date + 7, date + 16, 4);
 		date[11] = '\0';

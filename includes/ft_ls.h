@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 22:25:16 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 23:26:57 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <time.h>
 # include "libft.h"
 
-# define SIX_MONTH 15552000
+# define SIX_MONTHS 15552000
 
 typedef struct passwd	t_passwd;
 typedef struct group	t_group;

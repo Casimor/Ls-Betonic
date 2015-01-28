@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 20:11:29 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/28 22:25:16 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ typedef struct	s_opt
 	int		re_flag;
 }				t_opt;
 
+typedef struct	s_ldata
+{
+	t_list	*file_lst;
+	t_list	*err_lst;
+}				t_ldata;
+
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
 char			*ft_permission(struct stat *cp);
@@ -63,6 +69,6 @@ int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 void			ft_print(t_opt *opt, t_list *list);
 int				ft_ls(char *arg, t_opt *opt);
-t_list			*parser(char **args, t_opt *opt);
+void			parser(char **args, t_opt *opt, t_ldata *data);
 
 #endif

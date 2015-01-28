@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:54:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 12:34:57 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 12:52:05 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,8 @@ t_tree				*ft_tree_remove(t_tree **r, void *n, size_t s, t_comparator cmp);
 ** Maps
 */
 # define MAP_TREE_SIZE 4096
-typedef t_tree *t_map[MAP_TREE_SIZE];
+typedef t_tree				*t_map[MAP_TREE_SIZE];
+
 typedef struct s_map_entry	t_map_entry;
 typedef struct s_map_entry2	t_map_entry2;
 typedef struct s_data		t_data;

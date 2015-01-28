@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 23:26:57 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/28 23:56:35 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ typedef struct	s_ldata
 	t_list	*file_lst;
 	t_list	*err_lst;
 }				t_ldata;
+
+typedef struct	s_files
+{
+	char	*name;
+	DIR		*dir;
+}				t_files;
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 

@@ -35,10 +35,12 @@ SRC					=	main.c           \
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
-all: $(LIBFT_NAME) $(NAME)
+all: 
+	@$(MAKE) $(LIBFT_NAME)
+	@$(MAKE) $(NAME)
 
 $(LIBFT_NAME):
-	make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ)
 	$(COMPILER) $(LFLAGS) $@ $^
@@ -52,10 +54,16 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(COMPILER) $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJ)
-	rm -df $(OBJ_DIR)
+	@rm -f $(OBJ)
+	@rm -df $(OBJ_DIR)
 
-fclean: clean
-	rm -f $(NAME)
+fcleanlib:
+	@(cd $(LIBFT_DIR) && $(MAKE) fclean)
 
-re: fclean all
+fclean: clean fcleanlib
+	@rm -f $(NAME)
+
+re:
+	@$(MAKE) fcleanlib
+	@$(MAKE) fclean
+	@$(MAKE) all

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 16:46:58 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 17:44:30 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,4 @@ void			parser(char **argv, t_opt *opt, t_ldata *data)
 				ft_lstnew(create_tfiles(argv[index], dir), sizeof(t_files)));
 		index++;
 	}
-	// printf("l: %d\n", opt->l_flag);
-	// printf("a: %d\n", opt->a_flag);
-	// printf("r: %d\n", opt->r_flag);
-	// printf("t: %d\n", opt->t_flag);
-	// printf("R: %d\n", opt->re_flag);
 }

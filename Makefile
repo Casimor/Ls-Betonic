@@ -27,8 +27,8 @@ CFLAGS				=	-g3 -O3 -Wall -Wextra -Werror -c \
 LFLAGS				=	-L$(LIBFT_DIR) -l$(LIBFT) -o
 
 SRC					=	main.c           \
-						ft_l.c           \
-						ft_new_info.c    \
+						opt_l.c          \
+						new_info.c       \
 						ft_insert.c      \
 						ft_comparators.c \
 						parser.c         \

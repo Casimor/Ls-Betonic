@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 16:33:29 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 17:56:43 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ typedef struct	s_files
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-char			*ft_permission(struct stat *cp);
-t_info			*ft_new_info(t_dirent *dirent, char const *path);
+char			*permissions(struct stat *cp);
+t_info			*new_info(t_dirent *dirent, char const *path);
 void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);

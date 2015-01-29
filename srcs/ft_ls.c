@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 16:52:31 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 18:41:39 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <stdio.h>
 
 void	ft_ls(t_opt *opt, t_ldata *data)
 {
@@ -21,6 +20,7 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 	t_list		*list;
 
 	(void)opt;
+	display_error(data);
 	f_lst = data->file_lst;
 	while (f_lst)
 	{

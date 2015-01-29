@@ -6,12 +6,11 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 18:35:20 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 22:21:03 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <stdio.h>
 
 void	ft_ls(t_opt *opt, t_ldata *data)
 {
@@ -19,8 +18,10 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 	t_dirent	*dirent;
 	t_info		*info;
 	t_list		*list;
+	size_t		i;
 
-	(void)opt;
+	i = ft_lstsize(&(data)->file_lst);
+	display_error(data);
 	f_lst = data->file_lst;
 	while (f_lst)
 	{
@@ -32,61 +33,25 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 			ft_lstsort(&list, info, ft_cmp_lexico, 0);
 		}
 		closedir(files->dir);
-		while (list)
-		{
-			ft_putstr(((t_info *)(list->content))->mode);
-			ft_putchar('\t');
-			ft_putstr(((t_info *)(list->content))->link);
-			ft_putchar('\t');
-			ft_putstr(((t_info *)(list->content))->usr);
-			ft_putchar('\t');
-			ft_putstr(((t_info *)(list->content))->grp);
-			ft_putchar('\t');
-			ft_putstr(((t_info *)(list->content))->size);
-			ft_putchar('\t');
-			ft_putstr(((t_info *)(list->content))->time);
-			ft_putchar('\t');
-			ft_putstr(((t_info *)(list->content))->name);
-			ft_putchar('\n');
-			list = list->next;
-		}
-		ft_print(opt, list);
+		i = ft_print(opt, list, files->name, i) + 1;
 		f_lst = f_lst->next;
 	}
-}
-
-	// t_dirent	*dirent;
-	// DIR			*dir;
-	// t_list		*list;
-	// t_info		*info;
-
-	// (void)opt;
-	// list = NULL;
-	// if ((dir = opendir(arg)))
-	// {
-		// while ((dirent = readdir(dir)))
+		// while (list)
 		// {
+			// ft_putstr(((t_info *)(list->content))->mode);
+			// ft_putchar('\t');
+			// ft_putstr(((t_info *)(list->content))->link);
+			// ft_putchar('\t');
+			// ft_putstr(((t_info *)(list->content))->usr);
+			// ft_putchar('\t');
+			// ft_putstr(((t_info *)(list->content))->grp);
+			// ft_putchar('\t');
+			// ft_putstr(((t_info *)(list->content))->size);
+			// ft_putchar('\t');
+			// ft_putstr(((t_info *)(list->content))->time);
+			// ft_putchar('\t');
+			// ft_putstr(((t_info *)(list->content))->name);
+			// ft_putchar('\n');
+			// list = list->next;
 		// }
-		// ft_print(opt, list);
-		// closedir (dir);
-	// }
-	// while (list)
-	// {
-	// 	ft_putstr(((t_info *)(list->content))->mode);
-	// 	ft_putchar('\t');
-	// 	ft_putstr(((t_info *)(list->content))->link);
-	// 	ft_putchar('\t');
-	// 	ft_putstr(((t_info *)(list->content))->usr);
-	// 	ft_putchar('\t');
-	// 	ft_putstr(((t_info *)(list->content))->grp);
-	// 	ft_putchar('\t');
-	// 	ft_putstr(((t_info *)(list->content))->size);
-	// 	ft_putchar('\t');
-	// 	ft_putstr(((t_info *)(list->content))->time);
-	// 	ft_putchar('\t');
-	// 	ft_putstr(((t_info *)(list->content))->name);
-	// 	ft_putchar('\n');
-	// 	list = list->next;
-	// }
-	// return (1);
-// }
+}

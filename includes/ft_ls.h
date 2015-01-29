@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 21:59:27 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 22:21:13 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <grp.h>
 # include <pwd.h>
 # include <time.h>
+# include <stdio.h>
 # include "libft.h"
 
 # define SIX_MONTHS 15552000
@@ -73,8 +74,9 @@ void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
-void			ft_print(t_opt *opt, t_list *list);
+size_t			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
+void			display_error(t_ldata *data);
 
 /*
 ** Parser

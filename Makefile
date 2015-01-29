@@ -33,7 +33,8 @@ SRC					=	main.c           \
 						ft_comparators.c \
 						parser.c         \
 						ft_print.c       \
-						ft_ls.c
+						ft_ls.c          \
+						error.c
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

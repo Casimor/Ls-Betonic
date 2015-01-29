@@ -6,22 +6,20 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 15:36:39 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/29 15:44:17 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include <stdio.h>
+
 static void	parse_cmd(char *cmd, t_opt *opt)
 {
 	cmd++;
 	while (*cmd)
 	{
 		if (!ft_strchr("lartR", *cmd))
-		{
-			// fonction d'erreur
-			exit(0);
-		}
+			illegal_option_error(cmd);
 		opt->l_flag |= (*cmd == 'l');
 		opt->a_flag |= (*cmd == 'a');
 		opt->r_flag |= (*cmd == 'r');
@@ -72,15 +70,4 @@ void		parser(char **argv, t_opt *opt, t_ldata *data)
 	// printf("r: %d\n", opt->r_flag);
 	// printf("t: %d\n", opt->t_flag);
 	// printf("R: %d\n", opt->re_flag);
-	// while (data->file_lst)
-	// {
-		// printf("good: %s\n", (char*)data->file_lst->content);
-		// data->file_lst = data->file_lst->next;
-	// }
-	// while (data->err_lst)
-	// {
-		// printf("error: %s\n", (char*)data->err_lst->content);
-		// perror((char*)data->err_lst->content);
-		// data->err_lst = data->err_lst->next;
-	// }
 }

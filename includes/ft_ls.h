@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 14:32:33 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/29 15:44:45 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,15 @@ int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 void			ft_print(t_opt *opt, t_list *list);
 int				ft_ls(t_opt *opt, t_ldata *data);
+
+/*
+** Parser
+*/
 void			parser(char **args, t_opt *opt, t_ldata *data);
+
+/*
+** Error
+*/
+void			illegal_option_error(char *cmd);
 
 #endif

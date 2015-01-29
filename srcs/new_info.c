@@ -6,11 +6,11 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 17:57:15 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 22:02:57 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_ls.h"
+#include "ft_ls.h"
 
 static char		*join_path(char const *s1, char const *s2)
 {
@@ -34,8 +34,9 @@ static char		*get_user_name(uid_t uid)
 {
 	struct passwd	*get_user;
 
-	get_user = getpwuid(uid);
-	if (get_user != NULL)
+	if ((get_user = getpwuid(uid)) == 0)
+		return (ft_itoa(uid));
+	else
 		return (ft_strdup(get_user->pw_name));
 	return (NULL);
 }
@@ -72,6 +73,7 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	t_info	*new_elem;
 	t_stat	stat;
 	char	*str;
+	static size_t u = 0;
 
 	new_elem = (t_info*)malloc(sizeof(t_info));
 	if (new_elem == NULL)
@@ -87,5 +89,7 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	new_elem->time = get_time(&stat.st_mtimespec);
 	new_elem->name = dirent->d_name;
 	new_elem->timesec = stat.st_mtimespec;
+	u += stat.st_blocks;
+	printf("total: %zu\n", u);
 	return (new_elem);
 }

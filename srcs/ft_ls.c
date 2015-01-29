@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 17:57:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 18:35:20 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,24 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 			ft_lstsort(&list, info, ft_cmp_lexico, 0);
 		}
 		closedir(files->dir);
+		while (list)
+		{
+			ft_putstr(((t_info *)(list->content))->mode);
+			ft_putchar('\t');
+			ft_putstr(((t_info *)(list->content))->link);
+			ft_putchar('\t');
+			ft_putstr(((t_info *)(list->content))->usr);
+			ft_putchar('\t');
+			ft_putstr(((t_info *)(list->content))->grp);
+			ft_putchar('\t');
+			ft_putstr(((t_info *)(list->content))->size);
+			ft_putchar('\t');
+			ft_putstr(((t_info *)(list->content))->time);
+			ft_putchar('\t');
+			ft_putstr(((t_info *)(list->content))->name);
+			ft_putchar('\n');
+			list = list->next;
+		}
 		ft_print(opt, list);
 		f_lst = f_lst->next;
 	}

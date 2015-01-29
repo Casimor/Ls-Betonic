@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 16:33:29 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 18:05:41 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
-void			ft_print(t_opt *opt, t_list *list);
+size_t			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
 
 /*

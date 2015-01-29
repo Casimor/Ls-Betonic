@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 16:52:31 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 18:48:43 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 	t_dirent	*dirent;
 	t_info		*info;
 	t_list		*list;
+	size_t		i;
 
-	(void)opt;
+	i = ft_lstsize(&(data)->file_lst);
 	f_lst = data->file_lst;
 	while (f_lst)
 	{
@@ -32,7 +33,7 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 			ft_lstsort(&list, info, ft_cmp_lexico, 0);
 		}
 		closedir(files->dir);
-		ft_print(opt, list);
+		i = ft_print(opt, list, files->name, i) + 1;
 		f_lst = f_lst->next;
 	}
 }

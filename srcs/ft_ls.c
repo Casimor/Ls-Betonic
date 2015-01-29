@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 15:42:30 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/29 16:42:07 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include <stdio.h>
 
-int		ft_ls(t_opt *opt, t_ldata *data)
+void	ft_ls(t_opt *opt, t_ldata *data)
 {
 	t_list		*f_lst;
-	t_dirent	*dirent;
-	t_info		*info;
-	t_list		*list;
+	// t_dirent	*dirent;
+	// t_info		*info;
+	// t_list		*list;
 
 	(void)opt;
-	list = NULL;
+	// list = NULL;
 	f_lst = data->file_lst;
 	while (f_lst)
 	{
 		t_files	*files = f_lst->content;
-		while ((dirent = readdir(files->dir)))
-		{
-			info = ft_new_info(dirent, files->name);
-			ft_lstsort(&list, info, ft_cmp_lexico, 0);
-			ft_putendl(dirent->d_name);
-		}
+		ft_putstr(files->name);
+		// while ((dirent = readdir(files->dir)))
+		// {
+		// 	info = ft_new_info(dirent, files->name);
+		// 	ft_lstsort(&list, info, ft_cmp_lexico, 0);
+		// 	ft_putendl(dirent->d_name);
+		// }
 		f_lst = f_lst->next;
 	}
-	return (0);
 }
 
 	// t_dirent	*dirent;

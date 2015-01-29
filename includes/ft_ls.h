@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 15:44:45 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/29 16:33:29 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 void			ft_print(t_opt *opt, t_list *list);
-int				ft_ls(t_opt *opt, t_ldata *data);
+void			ft_ls(t_opt *opt, t_ldata *data);
 
 /*
 ** Parser
@@ -85,5 +85,6 @@ void			parser(char **args, t_opt *opt, t_ldata *data);
 ** Error
 */
 void			illegal_option_error(char *cmd);
+void			fts_error(void);
 
 #endif

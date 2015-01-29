@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 16:42:07 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 16:52:31 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 void	ft_ls(t_opt *opt, t_ldata *data)
 {
 	t_list		*f_lst;
-	// t_dirent	*dirent;
-	// t_info		*info;
-	// t_list		*list;
+	t_dirent	*dirent;
+	t_info		*info;
+	t_list		*list;
 
 	(void)opt;
-	// list = NULL;
 	f_lst = data->file_lst;
 	while (f_lst)
 	{
+		list = NULL;
 		t_files	*files = f_lst->content;
-		ft_putstr(files->name);
-		// while ((dirent = readdir(files->dir)))
-		// {
-		// 	info = ft_new_info(dirent, files->name);
-		// 	ft_lstsort(&list, info, ft_cmp_lexico, 0);
-		// 	ft_putendl(dirent->d_name);
-		// }
+		while ((dirent = readdir(files->dir)))
+		{
+			info = ft_new_info(dirent, files->name);
+			ft_lstsort(&list, info, ft_cmp_lexico, 0);
+		}
+		closedir(files->dir);
+		ft_print(opt, list);
 		f_lst = f_lst->next;
 	}
 }

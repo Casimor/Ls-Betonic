@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_new_info.c                                      :+:      :+:    :+:   */
+/*   new_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 23:26:43 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 17:57:15 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_ls.h"
 
-static char		*ft_join_path(char const *s1, char const *s2)
+static char		*join_path(char const *s1, char const *s2)
 {
 	size_t	i;
 	char	*str;
@@ -30,7 +30,7 @@ static char		*ft_join_path(char const *s1, char const *s2)
 	}
 }
 
-static char		*ft_get_user_name(uid_t uid)
+static char		*get_user_name(uid_t uid)
 {
 	struct passwd	*get_user;
 
@@ -40,7 +40,7 @@ static char		*ft_get_user_name(uid_t uid)
 	return (NULL);
 }
 
-static char		*ft_get_grp_name(gid_t gid)
+static char		*get_grp_name(gid_t gid)
 {
 	struct group	*get_group;
 
@@ -50,7 +50,7 @@ static char		*ft_get_grp_name(gid_t gid)
 	return (NULL);
 }
 
-static char		*ft_get_time(t_time *time2)
+static char		*get_time(t_time *time2)
 {
 	char	*date;
 	time_t	current_time;
@@ -67,7 +67,7 @@ static char		*ft_get_time(t_time *time2)
 	return (date);
 }
 
-t_info			*ft_new_info(t_dirent *dirent, char const *path)
+t_info			*new_info(t_dirent *dirent, char const *path)
 {
 	t_info	*new_elem;
 	t_stat	stat;
@@ -76,15 +76,15 @@ t_info			*ft_new_info(t_dirent *dirent, char const *path)
 	new_elem = (t_info*)malloc(sizeof(t_info));
 	if (new_elem == NULL)
 		return (NULL);
-	str = ft_join_path(path, dirent->d_name);
+	str = join_path(path, dirent->d_name);
 	lstat(str, &stat);
 	free(str);
-	new_elem->mode = ft_permission(&stat);
+	new_elem->mode = permissions(&stat);
 	new_elem->link = ft_itoa(stat.st_nlink);
-	new_elem->usr = ft_get_user_name(stat.st_uid);
-	new_elem->grp = ft_get_grp_name(stat.st_gid);
+	new_elem->usr = get_user_name(stat.st_uid);
+	new_elem->grp = get_grp_name(stat.st_gid);
 	new_elem->size = ft_itoa(stat.st_size);
-	new_elem->time = ft_get_time(&stat.st_mtimespec);
+	new_elem->time = get_time(&stat.st_mtimespec);
 	new_elem->name = dirent->d_name;
 	new_elem->timesec = stat.st_mtimespec;
 	return (new_elem);

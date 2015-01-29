@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 18:41:39 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/29 18:42:24 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 		t_files	*files = f_lst->content;
 		while ((dirent = readdir(files->dir)))
 		{
-			info = ft_new_info(dirent, files->name);
+			info = new_info(dirent, files->name);
 			ft_lstsort(&list, info, ft_cmp_lexico, 0);
 		}
 		closedir(files->dir);

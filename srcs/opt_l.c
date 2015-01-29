@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_l.c                                             :+:      :+:    :+:   */
+/*   opt_l.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2013/12/11 18:39:05 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 17:58:39 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_ls.h"
 
-static char		ft_type(struct stat *cc)
+static char		perm_type(struct stat *cc)
 {
 	if (S_ISBLK(cc->st_mode))
 		return ('b');
@@ -33,14 +33,14 @@ static char		ft_type(struct stat *cc)
 	return ('?');
 }
 
-char		*ft_permission(struct stat *cp)
+char		*permissions(struct stat *cp)
 {
 	char			*str;
 
 	str = ft_strnew(11);
 	if (str)
 	{
-		str[0] = ft_type(cp);
+		str[0] = perm_type(cp);
 		str[1] = (cp->st_mode & S_IRUSR ? 'r' : '-');
 		str[2] = (cp->st_mode & S_IWUSR ? 'w' : '-');
 		str[3] = (cp->st_mode & S_IXUSR ? 'x' : '-');

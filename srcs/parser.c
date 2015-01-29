@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 00:03:06 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 15:36:39 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,27 @@ void		parser(char **argv, t_opt *opt, t_ldata *data)
 		if (dir)
 		{
 			ft_lstpushback(&(data->file_lst),
-				ft_lstnew(create_tfiles(argv[index], dir), ft_strlen(argv[index])));
+				ft_lstnew(create_tfiles(argv[index], dir), sizeof(t_files)));
 		}
 		else
 			ft_lstpushback(&(data->err_lst),
-				ft_lstnew(create_tfiles(argv[index], dir), ft_strlen(argv[index])));
+				ft_lstnew(create_tfiles(argv[index], dir), sizeof(t_files)));
 		index++;
 	}
-	printf("l: %d\n", opt->l_flag);
-	printf("a: %d\n", opt->a_flag);
-	printf("r: %d\n", opt->r_flag);
-	printf("t: %d\n", opt->t_flag);
-	printf("R: %d\n", opt->re_flag);
-	while (data->file_lst)
-	{
-		printf("good: %s\n", (char*)data->file_lst->content);
-		data->file_lst = data->file_lst->next;
-	}
-	while (data->err_lst)
-	{
-		printf("error: %s\n", (char*)data->err_lst->content);
-		perror((char*)data->err_lst->content);
-		data->err_lst = data->err_lst->next;
-	}
+	// printf("l: %d\n", opt->l_flag);
+	// printf("a: %d\n", opt->a_flag);
+	// printf("r: %d\n", opt->r_flag);
+	// printf("t: %d\n", opt->t_flag);
+	// printf("R: %d\n", opt->re_flag);
+	// while (data->file_lst)
+	// {
+		// printf("good: %s\n", (char*)data->file_lst->content);
+		// data->file_lst = data->file_lst->next;
+	// }
+	// while (data->err_lst)
+	// {
+		// printf("error: %s\n", (char*)data->err_lst->content);
+		// perror((char*)data->err_lst->content);
+		// data->err_lst = data->err_lst->next;
+	// }
 }

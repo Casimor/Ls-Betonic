@@ -6,34 +6,52 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/28 20:17:29 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/29 15:42:30 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include <stdio.h>
 
-int		ft_ls(char *arg, t_opt *opt)
+int		ft_ls(t_opt *opt, t_ldata *data)
 {
+	t_list		*f_lst;
 	t_dirent	*dirent;
-	DIR			*dir;
-	t_list		*list;
 	t_info		*info;
+	t_list		*list;
 
 	(void)opt;
 	list = NULL;
-	if ((dir = opendir(arg)))
+	f_lst = data->file_lst;
+	while (f_lst)
 	{
-		while ((dirent = readdir(dir)))
+		t_files	*files = f_lst->content;
+		while ((dirent = readdir(files->dir)))
 		{
-			info = ft_new_info(dirent, arg);
+			info = ft_new_info(dirent, files->name);
 			ft_lstsort(&list, info, ft_cmp_lexico, 0);
-			// ft_putstr(dirent->d_name);
-			// ft_putendl(" ");
+			ft_putendl(dirent->d_name);
 		}
-		ft_print(opt, list);
-		closedir (dir);
+		f_lst = f_lst->next;
 	}
+	return (0);
+}
+
+	// t_dirent	*dirent;
+	// DIR			*dir;
+	// t_list		*list;
+	// t_info		*info;
+
+	// (void)opt;
+	// list = NULL;
+	// if ((dir = opendir(arg)))
+	// {
+		// while ((dirent = readdir(dir)))
+		// {
+		// }
+		// ft_print(opt, list);
+		// closedir (dir);
+	// }
 	// while (list)
 	// {
 	// 	ft_putstr(((t_info *)(list->content))->mode);
@@ -52,5 +70,5 @@ int		ft_ls(char *arg, t_opt *opt)
 	// 	ft_putchar('\n');
 	// 	list = list->next;
 	// }
-	return (1);
-}
+	// return (1);
+// }

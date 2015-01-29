@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:57 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 22:14:19 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 15:00:50 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ int		main(int argc, char **argv)
 
 	(void)argc;
 	parser(argv, &opt, &data);
-	// while (n_dir)
-	// {
-		// ft_ls((char *)data->content, &opt);
-	// }
+	ft_ls(&opt, &data);
 	return (0);
 }

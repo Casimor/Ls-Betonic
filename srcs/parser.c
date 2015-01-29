@@ -6,12 +6,11 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 17:44:30 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/29 17:45:37 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <stdio.h>
 
 static void		parse_cmd(char *cmd, t_opt *opt)
 {

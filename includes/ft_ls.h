@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 18:05:41 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/29 19:29:25 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <grp.h>
 # include <pwd.h>
 # include <time.h>
+# include <stdio.h>
 # include "libft.h"
 
 # define SIX_MONTHS 15552000
@@ -67,14 +68,15 @@ typedef struct	s_files
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-char			*ft_permission(struct stat *cp);
-t_info			*ft_new_info(t_dirent *dirent, char const *path);
+char			*permissions(struct stat *cp);
+t_info			*new_info(t_dirent *dirent, char const *path);
 void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 size_t			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
+void			display_error(t_ldata *data);
 
 /*
 ** Parser

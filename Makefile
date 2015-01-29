@@ -27,14 +27,15 @@ CFLAGS				=	-g3 -O3 -Wall -Wextra -Werror -c \
 LFLAGS				=	-L$(LIBFT_DIR) -l$(LIBFT) -o
 
 SRC					=	main.c           \
-						ft_l.c           \
-						ft_new_info.c    \
+						opt_l.c          \
+						new_info.c       \
 						ft_insert.c      \
 						ft_comparators.c \
 						parser.c         \
 						ft_print.c       \
 						ft_ls.c          \
-						error.c
+						error.c			 \
+						display_error.c
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

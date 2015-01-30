@@ -6,11 +6,11 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 18:12:02 by ochase            #+#    #+#             */
-/*   Updated: 2013/12/02 18:34:54 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 14:03:50 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_ls.h"
+#include "ft_ls.h"
 
 int		ft_cmp_lexico(const t_info *info1, const t_info *info2, int rev)
 {

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 15:48:38 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 18:06:01 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,26 @@ void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
-size_t			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
+void			ft_print(t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
 
 /*
 ** Display
 */
-size_t			display(t_opt *opt, t_info *info, char *name, size_t i);
+void			display(t_opt *opt, t_files *files, size_t i);
 void			display_error(t_ldata *data);
+
+/*
+** Sort tools
+*/
+typedef struct	s_sort
+{
+	int			flag;
+	t_list		*(*f)(t_list *list, t_info *info);
+}				t_sort;
+
+t_list			*ft_a(t_list *list, t_info *info);
+t_list			*ft_r(t_list *list, t_info *info);
 
 /*
 ** Parser

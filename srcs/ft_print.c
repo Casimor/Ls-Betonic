@@ -3,51 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/30 14:11:21 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/30 18:05:02 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	ft_print_ls(t_opt *opt, t_list *list)
+static void	ft_print_ls(t_list *lst)
 {
-	if (opt->r_flag == 1)
-		list = ft_lstrev(list);
-	while (list)
+	while (lst)
 	{
-		if (opt->r_flag == 1)
-		{
-			if (((t_info *)(list->content))->name[0] != '.' || opt->a_flag == 1)
-			{
-				ft_putstr(((t_info *)(list->content))->name);
-				ft_putchar('\n');
-			}
-		}
-		else if (((t_info *)(list->content))->name[0] != '.' || opt->a_flag == 1)
-		{
-			ft_putstr(((t_info *)(list->content))->name);
-			ft_putchar('\n');
-		}
-		list = list->next;
+		ft_putendl(((t_info *)(lst->content))->name);
+		lst = lst->next;
 	}
 }
 
-size_t		ft_print(t_opt *opt, t_list *list, char *name, size_t nb_files)
+void		ft_print(t_list *lst, char *name, size_t s_file)
 {
-	if (nb_files > 1)
+	if (s_file > 1)
 	{
 		ft_putstr(name);
 		ft_putendl(":");
-		ft_print_ls(opt, list);
+		ft_print_ls(lst);
 		ft_putchar('\n');
-		nb_files--;
 	}
 	else
-		ft_print_ls(opt, list);
-	return (nb_files);
+		ft_print_ls(lst);
 }
 
 

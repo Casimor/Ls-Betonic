@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 22:31:21 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 13:56:06 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	t_info	*new_elem;
 	t_stat	stat;
 	char	*str;
-	static size_t u = 0;
 
 	new_elem = (t_info*)malloc(sizeof(t_info));
 	if (new_elem == NULL)
@@ -89,7 +88,6 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	new_elem->time = get_time(&stat.st_mtimespec);
 	new_elem->name = dirent->d_name;
 	new_elem->timesec = stat.st_mtimespec;
-	u += stat.st_blocks;
-	printf("total: %zu\n", u);
+	new_elem->blocks = stat.st_blocks;
 	return (new_elem);
 }

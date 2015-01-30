@@ -6,36 +6,40 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 21:44:05 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 13:55:28 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_ls.h"
+#include "ft_ls.h"
 
-static char		perm_type(struct stat *cc)
+static t_bit g_perm[8] = {
+	{ S_IFBLK, 'b' },
+	{ S_IFCHR, 'c' },
+	{ S_IFDIR, 'd' },
+	{ S_IFIFO, 'p' },
+	{ S_IFREG, '-' },
+	{ S_IFLNK, 'l' },
+	{ S_IFSOCK, 's' },
+	{ S_IFWHT, 'w' }
+};
+
+static char		perm_type(t_stat *cc)
 {
-	if (S_ISBLK(cc->st_mode))
-		return ('b');
-	if (S_ISCHR(cc->st_mode))
-		return ('c');
-	if (S_ISDIR(cc->st_mode))
-		return ('d');
-	if (S_ISFIFO(cc->st_mode))
-		return ('p');
-	if (S_ISREG(cc->st_mode))
-		return ('-');
-	if (S_ISLNK(cc->st_mode))
-		return ('l');
-	if (S_ISSOCK(cc->st_mode))
-		return ('s');
-	if (S_ISWHT(cc->st_mode))
-		return ('w');
+	size_t	index;
+
+	index = 0;
+	while (index < 8)
+	{
+		if ((cc->st_mode & S_IFMT) == g_perm[index].bit)
+			return (g_perm[index].ret);
+		index++;
+	}
 	return ('?');
 }
 
-char		*permissions(struct stat *cp)
+char			*permissions(t_stat *cp)
 {
-	char			*str;
+	char	*str;
 
 	str = ft_strnew(11);
 	if (str)

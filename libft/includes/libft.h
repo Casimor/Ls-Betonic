@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:54:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/28 12:52:05 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 14:02:07 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ typedef struct		s_tree
 /*
 ** Typedef
 */
-typedef unsigned char   t_uchar;
-typedef int             t_int32;
-typedef unsigned int    t_uint32;
-typedef long            t_int64;
-typedef unsigned long   t_uint64;
+typedef unsigned char	t_uchar;
+typedef int				t_int32;
+typedef unsigned int	t_uint32;
+typedef long			t_int64;
+typedef unsigned long	t_uint64;
 
 typedef void		(*t_dlistf)(t_dlist *, void *);
 typedef void		(*t_listf)(t_list *, void *);
@@ -191,30 +191,35 @@ void				ft_lstdnc_del_cur(t_dlist **list);
 ** Tree
 */
 t_tree				*ft_tree_new(void *content, size_t content_size);
-void				ft_tree_insert(t_tree **root, t_tree *node, t_comparator cmp);
+void				ft_tree_insert(t_tree **root, t_tree *node,
+						t_comparator cmp);
 void				ft_tree_delet(t_tree **root, t_deleter del);
-t_tree				*ft_tree_delone(t_tree **r, void *n, size_t s, t_comparator cmp);
-t_tree				*ft_tree_find(t_tree *node, void *n, size_t s, t_comparator cmp);
-t_tree				*ft_tree_remove(t_tree **r, void *n, size_t s, t_comparator cmp);
+t_tree				*ft_tree_delone(t_tree **r, void *n, size_t s,
+						t_comparator cmp);
+t_tree				*ft_tree_find(t_tree *node, void *n, size_t s,
+						t_comparator cmp);
+t_tree				*ft_tree_remove(t_tree **r, void *n, size_t s,
+						t_comparator cmp);
 
 /*
 ** Maps
 */
 # define MAP_TREE_SIZE 4096
+
 typedef t_tree				*t_map[MAP_TREE_SIZE];
 
 typedef struct s_map_entry	t_map_entry;
 typedef struct s_map_entry2	t_map_entry2;
 typedef struct s_data		t_data;
 
-struct		s_map_entry
+struct				s_map_entry
 {
 	void		*key;
 	void		*value;
 	t_uint64	hash_;
 };
 
-struct		s_map_entry2
+struct				s_map_entry2
 {
 	const void	*key;
 	size_t		key_size;
@@ -223,20 +228,22 @@ struct		s_map_entry2
 	t_uint64	hash_;
 };
 
-struct		s_data
+struct				s_data
 {
 	void	*content;
 	size_t	content_size;
 };
 
-void		ft_map_insert(t_map map, t_map_entry entry, t_simple_hash_func h_f);
-void		*ft_map_get(t_map map, void *key, t_simple_hash_func h_f);
-t_map_entry	*ft_map_get_p(t_map map, void *key, t_simple_hash_func h_f);
-void		ft_map_remove(t_map map, void *key, t_simple_hash_func f,
-							t_map_deleter del);
-void		ft_map_delete(t_map map, t_map_deleter del);
-void		ft_map_foreach(t_map map, t_simple_functor functor, void *data);
+void				ft_map_insert(t_map map, t_map_entry entry,
+						t_simple_hash_func h_f);
+void				*ft_map_get(t_map map, void *key, t_simple_hash_func h_f);
+t_map_entry			*ft_map_get_p(t_map map, void *key, t_simple_hash_func h_f);
+void				ft_map_remove(t_map map, void *key, t_simple_hash_func f,
+						t_map_deleter del);
+void				ft_map_delete(t_map map, t_map_deleter del);
+void				ft_map_foreach(t_map map, t_simple_functor functor,
+						void *data);
 
-t_uint64	ft_djb2(const char *str);
+t_uint64			ft_djb2(const char *str);
 
 #endif

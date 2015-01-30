@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 22:21:03 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 13:48:59 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,29 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 		i = ft_print(opt, list, files->name, i) + 1;
 		f_lst = f_lst->next;
 	}
-		// while (list)
-		// {
-			// ft_putstr(((t_info *)(list->content))->mode);
-			// ft_putchar('\t');
-			// ft_putstr(((t_info *)(list->content))->link);
-			// ft_putchar('\t');
-			// ft_putstr(((t_info *)(list->content))->usr);
-			// ft_putchar('\t');
-			// ft_putstr(((t_info *)(list->content))->grp);
-			// ft_putchar('\t');
-			// ft_putstr(((t_info *)(list->content))->size);
-			// ft_putchar('\t');
-			// ft_putstr(((t_info *)(list->content))->time);
-			// ft_putchar('\t');
-			// ft_putstr(((t_info *)(list->content))->name);
-			// ft_putchar('\n');
-			// list = list->next;
-		// }
+	// while (list)
+	// {
+	// 	ft_putnbr(((t_info *)(list->content))->blocks);
+	// 	ft_putstr(((t_info *)(list->content))->name);
+	// 	ft_putchar('\n');
+	// 	list = list->next;
+	// }
+	// while (list)
+	// {
+	// 	ft_putstr(((t_info *)(list->content))->mode);
+	// 	ft_putchar('\t');
+	// 	ft_putstr(((t_info *)(list->content))->link);
+	// 	ft_putchar('\t');
+	// 	ft_putstr(((t_info *)(list->content))->usr);
+	// 	ft_putchar('\t');
+	// 	ft_putstr(((t_info *)(list->content))->grp);
+	// 	ft_putchar('\t');
+	// 	ft_putstr(((t_info *)(list->content))->size);
+	// 	ft_putchar('\t');
+	// 	ft_putstr(((t_info *)(list->content))->time);
+	// 	ft_putchar('\t');
+	// 	ft_putstr(((t_info *)(list->content))->name);
+	// 	ft_putchar('\n');
+	// 	list = list->next;
+	// }
 }

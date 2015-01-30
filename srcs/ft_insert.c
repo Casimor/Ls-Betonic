@@ -6,11 +6,11 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2013/12/02 18:45:46 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 14:03:55 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_ls.h"
+#include "ft_ls.h"
 
 void	ft_lstsort(t_list **list, const t_info *info, t_cmp cmp, int rev)
 {

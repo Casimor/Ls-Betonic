@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/29 22:38:12 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 13:55:18 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,15 @@ typedef struct dirent	t_dirent;
 
 typedef struct	s_info
 {
-	char	*mode;
-	char	*link;
-	char	*usr;
-	char	*grp;
-	char	*size;
-	char	*time;
-	char	*name;
-	t_time	timesec;
+	char		*mode;
+	char		*link;
+	char		*usr;
+	char		*grp;
+	char		*size;
+	char		*time;
+	char		*name;
+	t_time		timesec;
+	blkcnt_t	blocks;
 }				t_info;
 
 typedef struct	s_opt
@@ -65,6 +66,12 @@ typedef struct	s_files
 	char	*name;
 	DIR		*dir;
 }				t_files;
+
+typedef struct	s_bit
+{
+	mode_t	bit;
+	char	ret;
+}				t_bit;
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 

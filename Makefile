@@ -35,7 +35,8 @@ SRC					=	main.c           \
 						ft_print.c       \
 						ft_ls.c          \
 						error.c			 \
-						display_error.c
+						display_error.c	 \
+						display.c
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

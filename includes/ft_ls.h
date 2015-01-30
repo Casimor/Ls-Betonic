@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 15:16:24 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 15:48:38 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 size_t			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
+
+/*
+** Display
+*/
+size_t			display(t_opt *opt, t_info *info, char *name, size_t i);
 void			display_error(t_ldata *data);
 
 /*

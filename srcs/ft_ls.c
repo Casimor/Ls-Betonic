@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/30 15:48:47 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/30 16:54:10 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,16 @@
 void	ft_ls(t_opt *opt, t_ldata *data)
 {
 	t_list		*f_lst;
-	t_dirent	*dirent;
-	t_list		*list;
-	size_t		i;
 	t_files		*files;
+	size_t		i;
 
-	i = ft_lstsize(&(data)->file_lst);
 	display_error(data);
 	f_lst = data->file_lst;
+	i = ft_lstsize(&f_lst);
 	while (f_lst)
 	{
-		list = NULL;
 		files = f_lst->content;
-		while ((dit = readdir(files->dir)))
-		{
-			if (opt->t_flag == 1)
-				ft_lstsort(&list, new_info(dit, files->name), ft_cmp_time, 0);
-			else
-				ft_lstsort(&list, new_info(dit, files->name), ft_cmp_lexico, 0);
-		}
-		closedir(files->dir);
-		i = ft_print(opt, list, files->name, i) + 1;
+		display(opt, files, i);
 		f_lst = f_lst->next;
 }
 

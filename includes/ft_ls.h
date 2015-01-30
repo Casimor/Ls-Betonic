@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 18:25:04 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 19:20:36 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct	s_sort
 t_list			*ft_a(t_list *list, t_info *info);
 t_list			*ft_r(t_list *list, t_info *info);
 t_list			*ft_l(t_list *list, t_info *info);
+t_list			*ft_t(t_list *list, t_info *info);
 
 /*
 ** Parser

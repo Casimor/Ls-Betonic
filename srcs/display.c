@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 18:25:21 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 19:21:06 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static t_list		*sort_list(t_list *list, t_info *info, t_opt *opt)
 		{opt->a_flag, ft_a},
 		// {"t", ft_t},
 		{opt->l_flag, ft_l},
-		// {"e", ft_e},
+		{opt->t_flag, ft_t},
+		// {"re", ft_re},
 		{opt->r_flag, ft_r}};
 
 	i = 0;

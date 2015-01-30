@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 17:13:42 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 19:23:13 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 19:24:08 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ t_list		*ft_l(t_list *list, t_info *info)
 		ft_putchar('\n');
 		list = list->next;
 	}
+	return (list);
+}
 
 t_list		*ft_t(t_list *list, t_info *info)
 {

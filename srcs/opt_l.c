@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 13:55:28 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 18:18:26 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ static char		perm_type(t_stat *cc)
 	return ('?');
 }
 
-char			*permissions(t_stat *cp)
+char			*permissions(t_stat *cp, char *path)
 {
 	char	*str;
-
+	char	buf[256];
 	str = ft_strnew(11);
+
 	if (str)
 	{
 		str[0] = perm_type(cp);
@@ -54,7 +55,12 @@ char			*permissions(t_stat *cp)
 		str[7] = (cp->st_mode & S_IROTH ? 'r' : '-');
 		str[8] = (cp->st_mode & S_IWOTH ? 'w' : '-');
 		str[9] = (cp->st_mode & S_IXOTH ? 'x' : '-');
-		str[10] = ' ';
+		if (acl_get_file(path, ACL_TYPE_EXTENDED))
+			str[10] = '+';
+		else if (listxattr(path, buf, 256, 0))
+			str[10] = '@';
+		else
+			str[10] = ' ';
 	}
 	return (str);
 }

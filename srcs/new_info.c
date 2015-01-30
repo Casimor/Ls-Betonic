@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 13:56:06 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 18:08:18 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,7 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 		return (NULL);
 	str = join_path(path, dirent->d_name);
 	lstat(str, &stat);
-	free(str);
-	new_elem->mode = permissions(&stat);
+	new_elem->mode = permissions(&stat, str);
 	new_elem->link = ft_itoa(stat.st_nlink);
 	new_elem->usr = get_user_name(stat.st_uid);
 	new_elem->grp = get_grp_name(stat.st_gid);
@@ -89,5 +88,6 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	new_elem->name = dirent->d_name;
 	new_elem->timesec = stat.st_mtimespec;
 	new_elem->blocks = stat.st_blocks;
+	free(str);
 	return (new_elem);
 }

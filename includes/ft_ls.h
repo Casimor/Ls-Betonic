@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 15:16:24 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 18:08:25 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <sys/dir.h>
+# include <sys/xattr.h>
+# include <sys/acl.h>
 # include <grp.h>
 # include <pwd.h>
 # include <time.h>
@@ -44,6 +46,7 @@ typedef struct	s_info
 	char		*name;
 	t_time		timesec;
 	blkcnt_t	blocks;
+	char		*path;
 }				t_info;
 
 typedef struct	s_opt
@@ -75,8 +78,6 @@ typedef struct	s_bit
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-char			*permissions(struct stat *cp);
-t_info			*new_info(t_dirent *dirent, char const *path);
 void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
@@ -84,6 +85,12 @@ int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 size_t			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
 void			display_error(t_ldata *data);
+
+/*
+** Option -l
+*/
+char			*permissions(struct stat *cp, char *path);
+t_info			*new_info(t_dirent *dirent, char const *path);
 
 /*
 ** Parser

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/30 16:54:10 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 18:22:47 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,8 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 		files = f_lst->content;
 		display(opt, files, i);
 		f_lst = f_lst->next;
-}
+	}
 
-
-	// while (list)
-	// {
-	// 	ft_putnbr(((t_info *)(list->content))->blocks);
-	// 	ft_putstr(((t_info *)(list->content))->name);
-	// 	ft_putchar('\n');
-	// 	list = list->next;
-	// }
 	// while (list)
 	// {
 	// 	ft_putstr(((t_info *)(list->content))->mode);

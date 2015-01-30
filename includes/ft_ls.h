@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 19:10:24 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 19:20:43 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <sys/dir.h>
+# include <sys/xattr.h>
+# include <sys/acl.h>
 # include <grp.h>
 # include <pwd.h>
 # include <time.h>
@@ -53,6 +55,7 @@ typedef struct	s_info
 	char		*name;
 	t_time		timesec;
 	blkcnt_t	blocks;
+	char		*path;
 }				t_info;
 
 typedef struct	s_opt
@@ -84,8 +87,6 @@ typedef struct	s_bit
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-char			*permissions(struct stat *cp);
-t_info			*new_info(t_dirent *dirent, char const *path);
 void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
@@ -100,6 +101,12 @@ void			display(t_opt *opt, t_files *files, size_t i);
 void			display_error(t_ldata *data);
 
 /*
+** Option -l
+*/
+char			*permissions(struct stat *cp, char *path);
+t_info			*new_info(t_dirent *dirent, char const *path);
+
+/*
 ** Sort tools
 */
 typedef struct	s_sort
@@ -110,6 +117,7 @@ typedef struct	s_sort
 
 t_list			*ft_a(t_list *list, t_info *info);
 t_list			*ft_r(t_list *list, t_info *info);
+t_list			*ft_t(t_list *list, t_info *info);
 
 /*
 ** Parser

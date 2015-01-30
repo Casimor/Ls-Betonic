@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 19:17:52 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 19:20:28 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ static t_list		*sort_list(t_list *list, t_info *info, t_opt *opt)
 	size_t			c;
 	const t_sort	flag_tab[] = {
 		// {"t", ft_t},
+		{opt->t_flag, ft_t},
 		// {"l", ft_l},
-		// {"e", ft_e},
+		// {"re", ft_re},
 		{opt->r_flag, ft_r}};
 
 	i = 0;
@@ -50,7 +51,7 @@ void				display(t_opt *opt, t_files *files, size_t i)
 }
 
 // display(opt, new_info(dirent, files->name), files->name);
-// 
+//
 // while ((dit = readdir(files->dir)))
 // {
     // if (opt->t_flag == 1)

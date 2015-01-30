@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 18:06:01 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 18:22:51 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct	s_sort
 
 t_list			*ft_a(t_list *list, t_info *info);
 t_list			*ft_r(t_list *list, t_info *info);
+t_list			*ft_t(t_list *list, t_info *info);
 
 /*
 ** Parser

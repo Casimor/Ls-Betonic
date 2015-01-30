@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 13:55:18 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 15:16:24 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void			display_error(t_ldata *data);
 ** Parser
 */
 void			parser(char **args, t_opt *opt, t_ldata *data);
+t_files			*create_tfiles(char *name, DIR *dir);
 
 /*
 ** Error

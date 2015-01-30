@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:57 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 14:05:17 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 15:19:15 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int		main(int argc, char **argv)
 
 	(void)argc;
 	parser(argv, &opt, &data);
+	if (!data.file_lst)
+		ft_lstpushback(&data.file_lst,
+			ft_lstnew(create_tfiles(".", opendir(".")), sizeof(t_files)));
 	ft_ls(&opt, &data);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 14:56:46 by ochase           ###   ########.fr       */
+/*   Updated: 2015/01/30 15:16:07 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		parse_cmd(char *cmd, t_opt *opt)
 	return (0);
 }
 
-static t_files	*create_tfiles(char *name, DIR *dir)
+t_files			*create_tfiles(char *name, DIR *dir)
 {
 	t_files	*files;
 

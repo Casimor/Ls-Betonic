@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/29 19:00:32 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/01/30 14:07:05 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 static void	ft_print_ls(t_opt *opt, t_list *list)
 {
+	if (opt->r_flag == 1)
+		list = ft_lstrev(list);
 	while (list)
 	{
 		if (opt->r_flag == 1)
 		{
-			list = ft_lstrev(list);
 			if (((t_info *)(list->content))->name[0] != '.' || opt->a_flag == 1)
 			{
 				ft_putstr(((t_info *)(list->content))->name);

@@ -6,32 +6,37 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/30 18:05:02 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 19:16:57 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	ft_print_ls(t_list *lst)
+static void	ft_print_ls(t_opt *opt, t_list *lst)
 {
 	while (lst)
 	{
+		if (!opt->a_flag && ((t_info *)(lst->content))->name[0] == '.')
+		{
+			lst = lst->next;
+			continue ;
+		}
 		ft_putendl(((t_info *)(lst->content))->name);
 		lst = lst->next;
 	}
 }
 
-void		ft_print(t_list *lst, char *name, size_t s_file)
+void		ft_print(t_opt *opt, t_list *lst, char *name, size_t s_file)
 {
 	if (s_file > 1)
 	{
 		ft_putstr(name);
 		ft_putendl(":");
-		ft_print_ls(lst);
+		ft_print_ls(opt, lst);
 		ft_putchar('\n');
 	}
 	else
-		ft_print_ls(lst);
+		ft_print_ls(opt, lst);
 }
 
 

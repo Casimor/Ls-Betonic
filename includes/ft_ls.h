@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 18:06:01 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 19:10:24 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 # include <time.h>
 # include <stdio.h>
 # include "libft.h"
+
+// 0000 0000 0000 1000
+
+// 0010 |= 1001 == 1011
+
+// flags & FLAG_A
+// 1001    0010    0000
+
+// # define FLAG_A 1<<4
 
 # define SIX_MONTHS 15552000
 
@@ -81,7 +90,7 @@ void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
-void			ft_print(t_list *list, char *name, size_t nb_file);
+void			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
 
 /*

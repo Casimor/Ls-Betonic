@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 18:08:59 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/01/30 18:25:21 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_list		*sort_list(t_list *list, t_info *info, t_opt *opt)
 	const t_sort	flag_tab[] = {
 		{opt->a_flag, ft_a},
 		// {"t", ft_t},
-		// {"l", ft_l},
+		{opt->l_flag, ft_l},
 		// {"e", ft_e},
 		{opt->r_flag, ft_r}};
 
@@ -51,7 +51,7 @@ void				display(t_opt *opt, t_files *files, size_t i)
 }
 
 // display(opt, new_info(dirent, files->name), files->name);
-// 
+//
 // while ((dit = readdir(files->dir)))
 // {
     // if (opt->t_flag == 1)

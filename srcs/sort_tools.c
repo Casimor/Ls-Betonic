@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 17:13:42 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/01 19:45:01 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/01 22:34:14 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 t_list		*ft_r(t_list *list)
 {
-	lstsort(&list, cmp_lexico, 0);
-	return (list);
+	return (ft_lstrev(list));
 }
 
 t_list		*ft_l(t_list *list)

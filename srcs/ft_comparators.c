@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_comparators.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 18:12:02 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 15:11:12 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/01 18:34:01 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		ft_cmp_lexico(const t_info *info1, const t_info *info2, int rev)
+int		cmp_lexico(const t_info *info1, const t_info *info2, int rev)
 {
 	if (rev)
 		return (-ft_strcmp(info1->name, info2->name));
 	return (ft_strcmp(info1->name, info2->name));
 }
 
-int		ft_cmp_time(const t_info *info1, const t_info *info2, int rev)
+int		cmp_time(const t_info *info1, const t_info *info2, int rev)
 {
 	int		result;
 

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 17:08:45 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 18:33:59 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ typedef struct	s_bit
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
 void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
-int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
-int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
+int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
+int				cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 void			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 19:22:28 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 18:34:00 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_list		*sort_list(t_list *list, t_info *info, t_opt *opt)
 		i++;
 	}
 	if (!c)
-		ft_lstsort(&list, info, ft_cmp_lexico, 0);
+		ft_lstsort(&list, info, cmp_lexico, 0);
 	return (list);
 }
 
@@ -54,6 +54,6 @@ void				display(t_opt *opt, t_files *files, size_t i)
 // while ((dit = readdir(files->dir)))
 // {
     // if (opt->t_flag == 1)
-        // ft_lstsort(&list, new_info(dit, files->name), ft_cmp_time, 0);
+        // ft_lstsort(&list, new_info(dit, files->name), cmp_time, 0);
     // else
-        // ft_lstsort(&list, new_info(dit, files->name), ft_cmp_lexico, 0);
+        // ft_lstsort(&list, new_info(dit, files->name), cmp_lexico, 0);

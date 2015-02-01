@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 17:13:42 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/01 17:27:03 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 18:33:55 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_list		*ft_r(t_list *list, t_info *info)
 {
-	ft_lstsort(&list, info, ft_cmp_lexico, 1);
+	ft_lstsort(&list, info, cmp_lexico, 1);
 	return (list);
 }
 
 t_list		*ft_l(t_list *list, t_info *info)
 {
-	ft_lstsort(&list, info, ft_cmp_lexico, 0);
+	ft_lstsort(&list, info, cmp_lexico, 0);
 	while (list)
 	{
 		ft_putstr(((t_info *)(list->content))->mode);
@@ -49,6 +49,6 @@ t_list		*ft_l(t_list *list, t_info *info)
 
 t_list		*ft_t(t_list *list, t_info *info)
 {
-	ft_lstsort(&list, info, ft_cmp_time, 0);
+	ft_lstsort(&list, info, cmp_time, 0);
 	return (list);
 }

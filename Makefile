@@ -34,10 +34,12 @@ SRC					=	main.c           \
 						parser.c         \
 						ft_print.c       \
 						ft_ls.c          \
-						error.c			 \
-						display_error.c	 \
-						display.c		 \
-						sort_tools.c
+						error.c          \
+						display_error.c  \
+						display.c        \
+						sort_tools.c     \
+						print_l.c        \
+						padding.c
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

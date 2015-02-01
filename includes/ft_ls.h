@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 18:33:59 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 22:35:16 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,15 @@ typedef struct	s_bit
 	char	ret;
 }				t_bit;
 
+typedef struct	s_size
+{
+	size_t	mode;
+	size_t	link;
+	size_t	user;
+	size_t	group;
+	size_t	fsize;
+}				t_size;
+
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
 void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
@@ -107,6 +116,9 @@ void			display_error(t_ldata *data);
 char			*permissions(struct stat *cp, char *path);
 t_info			*new_info(t_dirent *dirent, char const *path);
 char			*get_link_infos(char const *path);
+void			print_lopt(t_list *list);
+void			set_padding_nbr(char *content, size_t size);
+void			set_padding(char *content, size_t size, size_t end_space);
 
 /*
 ** Sort tools

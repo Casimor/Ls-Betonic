@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 19:09:14 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/01 19:44:47 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct	s_info
 	t_time		timesec;
 	blkcnt_t	blocks;
 	char		*path;
+	char		*link_info;
 }				t_info;
 
 typedef struct	s_opt
@@ -87,9 +88,11 @@ typedef struct	s_bit
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
-int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
-int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
+
+void			lstsort(t_list **list, t_cmp cmp, int rev);
+void			lstaddinfo(t_list **list, const t_info *info);
+int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
+int				cmp_time(const t_info *info1, const t_info *info2, int rev);
 
 void			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
 void			ft_ls(t_opt *opt, t_ldata *data);
@@ -105,6 +108,7 @@ void			display_error(t_ldata *data);
 */
 char			*permissions(struct stat *cp, char *path);
 t_info			*new_info(t_dirent *dirent, char const *path);
+char			*get_link_infos(char const *path);
 
 /*
 ** Sort tools
@@ -112,13 +116,12 @@ t_info			*new_info(t_dirent *dirent, char const *path);
 typedef struct	s_sort
 {
 	int			flag;
-	t_list		*(*f)(t_list *list, t_info *info);
+	t_list		*(*f)(t_list *list);
 }				t_sort;
 
-t_list			*ft_r(t_list *list, t_info *info);
-t_list			*ft_l(t_list *list, t_info *info);
-t_list			*ft_t(t_list *list, t_info *info);
-t_list			*ft_re(t_list *list, t_info *info);
+t_list			*ft_r(t_list *list);
+t_list			*ft_l(t_list *list);
+t_list			*ft_t(t_list *list);
 
 /*
 ** Parser

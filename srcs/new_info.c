@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 18:08:18 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 18:10:20 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ static char		*get_time(t_time *time2)
 	date = ft_strdup(ctime(&time2->tv_sec) + 4);
 	if (((current_time - time2->tv_sec) > SIX_MONTHS)
 		|| ((current_time - time2->tv_sec) < -SIX_MONTHS))
-	{
-		ft_strncpy(date + 7, date + 16, 4);
-		date[11] = '\0';
-	}
+		ft_strncpy(date + 7, date + 15, 5);
 	date[12] = '\0';
 	return (date);
 }
@@ -88,6 +85,7 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	new_elem->name = dirent->d_name;
 	new_elem->timesec = stat.st_mtimespec;
 	new_elem->blocks = stat.st_blocks;
+	new_elem->link_info = get_link_infos(str);
 	free(str);
 	return (new_elem);
 }

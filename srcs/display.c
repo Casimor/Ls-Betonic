@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/01 19:00:52 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/01 19:40:04 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ static t_list		*sort_list(t_list *list, t_info *info, t_opt *opt)
 		i++;
 	}
 	if (!c)
-	{
-		lstsort(&list, ft_cmp_lexico, 1);
-	}
+		lstsort(&list, cmp_lexico, 1);
 	return (list);
 }
 
@@ -57,6 +55,6 @@ void				display(t_opt *opt, t_files *files, size_t i)
 // while ((dit = readdir(files->dir)))
 // {
     // if (opt->t_flag == 1)
-        // ft_lstsort(&list, new_info(dit, files->name), ft_cmp_time, 0);
+        // ft_lstsort(&list, new_info(dit, files->name), cmp_time, 0);
     // else
-        // ft_lstsort(&list, new_info(dit, files->name), ft_cmp_lexico, 0);
+        // ft_lstsort(&list, new_info(dit, files->name), cmp_lexico, 0);

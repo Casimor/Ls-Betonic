@@ -30,7 +30,7 @@ SRC					=	main.c           \
 						opt_l.c          \
 						new_info.c       \
 						ft_insert.c      \
-						ft_comparators.c \
+						comparators.c    \
 						parser.c         \
 						ft_print.c       \
 						ft_ls.c          \

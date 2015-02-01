@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 17:13:42 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/01 19:01:14 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/01 19:39:40 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_list		*ft_r(t_list *list)
 {
-	lstsort(&list, ft_cmp_lexico, 0);
+	lstsort(&list, cmp_lexico, 0);
 	return (list);
 }
 
 t_list		*ft_l(t_list *list)
 {
-	lstsort(&list, ft_cmp_lexico, 1);
+	lstsort(&list, cmp_lexico, 1);
 	while (list)
 	{
 		ft_putstr(((t_info *)(list->content))->mode);
@@ -36,6 +36,11 @@ t_list		*ft_l(t_list *list)
 		ft_putstr(((t_info *)(list->content))->time);
 		ft_putchar('\t');
 		ft_putstr(((t_info *)(list->content))->name);
+		if (((t_info *)(list->content))->link_info)
+		{
+			ft_putstr(" -> ");
+			ft_putstr(((t_info *)(list->content))->link_info);
+		}
 		ft_putchar('\n');
 		list = list->next;
 	}
@@ -44,6 +49,6 @@ t_list		*ft_l(t_list *list)
 
 t_list		*ft_t(t_list *list)
 {
-	lstsort(&list, ft_cmp_time, 1);
+	lstsort(&list, cmp_time, 1);
 	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 22:35:16 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 22:55:36 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,9 @@ typedef struct	s_size
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
+
+void			lstsort(t_list **list, t_cmp cmp, int rev);
+void			lstaddinfo(t_list **list, const t_info *info);
 int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				cmp_time(const t_info *info1, const t_info *info2, int rev);
 
@@ -116,7 +118,7 @@ void			display_error(t_ldata *data);
 char			*permissions(struct stat *cp, char *path);
 t_info			*new_info(t_dirent *dirent, char const *path);
 char			*get_link_infos(char const *path);
-void			print_lopt(t_list *list);
+void			print_lopt(t_list *list, t_opt *opt);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
 
@@ -126,12 +128,12 @@ void			set_padding(char *content, size_t size, size_t end_space);
 typedef struct	s_sort
 {
 	int			flag;
-	t_list		*(*f)(t_list *list, t_info *info);
+	t_list		*(*f)(t_list *list);
 }				t_sort;
 
-t_list			*ft_r(t_list *list, t_info *info);
-t_list			*ft_l(t_list *list, t_info *info);
-t_list			*ft_t(t_list *list, t_info *info);
+t_list			*ft_r(t_list *list);
+t_list			*ft_l(t_list *list);
+t_list			*ft_t(t_list *list);
 
 /*
 ** Parser

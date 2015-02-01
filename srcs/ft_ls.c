@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/30 18:24:45 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 22:07:08 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 		display(opt, files, i);
 		f_lst = f_lst->next;
 	}
+	ft_free_lst(&data->file_lst);
+	ft_free_lst(&data->err_lst);
 }

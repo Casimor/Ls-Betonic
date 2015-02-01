@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/01/30 19:16:57 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/01 22:44:13 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,17 @@ void		ft_print(t_opt *opt, t_list *lst, char *name, size_t s_file)
 	{
 		ft_putstr(name);
 		ft_putendl(":");
-		ft_print_ls(opt, lst);
+		if (opt->l_flag)
+			print_lopt(lst, opt);
+		else
+			ft_print_ls(opt, lst);
 		ft_putchar('\n');
 	}
 	else
-		ft_print_ls(opt, lst);
+	{
+		if (opt->l_flag)
+			print_lopt(lst, opt);
+		else
+			ft_print_ls(opt, lst);
+	}
 }
-
-
-
-		// ft_putstr(((t_info *)(list->content))->mode);
-		// ft_putchar('\t');
-		// ft_putstr(((t_info *)(list->content))->link);
-		// ft_putchar('\t');
-		// ft_putstr(((t_info *)(list->content))->usr);
-		// ft_putchar('\t');
-		// ft_putstr(((t_info *)(list->content))->grp);
-		// ft_putchar('\t');
-		// ft_putstr(((t_info *)(list->content))->size);
-		// ft_putchar('\t');
-		// ft_putstr(((t_info *)(list->content))->time);
-		// ft_putchar('\t');
-		// ft_putstr(((t_info *)(list->content))->name);

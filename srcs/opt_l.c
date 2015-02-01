@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 18:18:26 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 17:52:42 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ static t_bit g_perm[8] = {
 	{ S_IFWHT, 'w' }
 };
 
+char			*get_link_infos(char const *path)
+{
+	char	buf[256];
+
+	ft_bzero(buf, 256);
+	if (readlink(path, buf, 256) > 0)
+		return (ft_strdup(buf));
+	return (0);
+}
+
 static char		perm_type(t_stat *cc)
 {
 	size_t	index;
@@ -37,10 +47,20 @@ static char		perm_type(t_stat *cc)
 	return ('?');
 }
 
+static char		get_additional_infos(char *path)
+{
+	char	buf[256];
+
+	if (listxattr(path, buf, 256, 0) > 0)
+		return ('@');
+	if (acl_get_link_np(path, ACL_TYPE_EXTENDED))
+		return ('+');
+	return (' ');
+}
+
 char			*permissions(t_stat *cp, char *path)
 {
 	char	*str;
-	char	buf[256];
 	str = ft_strnew(11);
 
 	if (str)
@@ -55,12 +75,7 @@ char			*permissions(t_stat *cp, char *path)
 		str[7] = (cp->st_mode & S_IROTH ? 'r' : '-');
 		str[8] = (cp->st_mode & S_IWOTH ? 'w' : '-');
 		str[9] = (cp->st_mode & S_IXOTH ? 'x' : '-');
-		if (acl_get_file(path, ACL_TYPE_EXTENDED))
-			str[10] = '+';
-		else if (listxattr(path, buf, 256, 0))
-			str[10] = '@';
-		else
-			str[10] = ' ';
+		str[10] = get_additional_infos(path);
 	}
 	return (str);
 }

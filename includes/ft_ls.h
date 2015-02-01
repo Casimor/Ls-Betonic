@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 19:22:08 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 17:08:45 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct	s_info
 	t_time		timesec;
 	blkcnt_t	blocks;
 	char		*path;
+	char		*link_info;
 }				t_info;
 
 typedef struct	s_opt
@@ -105,6 +106,7 @@ void			display_error(t_ldata *data);
 */
 char			*permissions(struct stat *cp, char *path);
 t_info			*new_info(t_dirent *dirent, char const *path);
+char			*get_link_infos(char const *path);
 
 /*
 ** Sort tools

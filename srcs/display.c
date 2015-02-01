@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 19:22:28 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 19:00:52 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,20 @@ static t_list		*sort_list(t_list *list, t_info *info, t_opt *opt)
 
 	i = 0;
 	c = 0;
+	lstaddinfo(&list, info);
 	while (i < sizeof(flag_tab) / sizeof(t_sort))
 	{
 		if (flag_tab[i].flag == 1)
 		{
 			c = 1;
-			list = flag_tab[i].f(list, info);
+			list = flag_tab[i].f(list);
 		}
 		i++;
 	}
 	if (!c)
-		ft_lstsort(&list, info, ft_cmp_lexico, 0);
+	{
+		lstsort(&list, ft_cmp_lexico, 1);
+	}
 	return (list);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/01/30 19:22:08 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 18:56:32 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ typedef struct	s_bit
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-void			ft_lstsort(t_list **list, const t_info *info, t_cmp c, int rev);
+void			lstsort(t_list **list, t_cmp cmp, int rev);
+void			lstaddinfo(t_list **list, const t_info *info);
 int				ft_cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				ft_cmp_time(const t_info *info1, const t_info *info2, int rev);
 
@@ -112,12 +113,12 @@ t_info			*new_info(t_dirent *dirent, char const *path);
 typedef struct	s_sort
 {
 	int			flag;
-	t_list		*(*f)(t_list *list, t_info *info);
+	t_list		*(*f)(t_list *list);
 }				t_sort;
 
-t_list			*ft_r(t_list *list, t_info *info);
-t_list			*ft_l(t_list *list, t_info *info);
-t_list			*ft_t(t_list *list, t_info *info);
+t_list			*ft_r(t_list *list);
+t_list			*ft_l(t_list *list);
+t_list			*ft_t(t_list *list);
 
 /*
 ** Parser

@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 17:13:42 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 19:24:08 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 19:01:14 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_list		*ft_r(t_list *list, t_info *info)
+t_list		*ft_r(t_list *list)
 {
-	ft_lstsort(&list, info, ft_cmp_lexico, 1);
+	lstsort(&list, ft_cmp_lexico, 0);
 	return (list);
 }
 
-t_list		*ft_l(t_list *list, t_info *info)
+t_list		*ft_l(t_list *list)
 {
-	ft_lstsort(&list, info, ft_cmp_lexico, 0);
+	lstsort(&list, ft_cmp_lexico, 1);
 	while (list)
 	{
 		ft_putstr(((t_info *)(list->content))->mode);
@@ -42,8 +42,8 @@ t_list		*ft_l(t_list *list, t_info *info)
 	return (list);
 }
 
-t_list		*ft_t(t_list *list, t_info *info)
+t_list		*ft_t(t_list *list)
 {
-	ft_lstsort(&list, info, ft_cmp_time, 0);
+	lstsort(&list, ft_cmp_time, 1);
 	return (list);
 }

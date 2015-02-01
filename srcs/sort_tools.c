@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 17:13:42 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 19:24:08 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/01 19:09:27 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+
+t_list		*ft_re(t_list *list, t_info *info)
+{
+	(void)info;
+	return (list);
+}
 
 t_list		*ft_r(t_list *list, t_info *info)
 {

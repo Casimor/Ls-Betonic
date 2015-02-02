@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 17:52:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/02 15:33:55 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,23 @@ static t_bit g_perm[8] = {
 	{ S_IFSOCK, 's' },
 	{ S_IFWHT, 'w' }
 };
+
+char			*get_size(t_stat *stat)
+{
+	char	*major;
+	char	*minor;
+	char	*new;
+
+	if (major(stat->st_rdev) || minor(stat->st_rdev))
+	{
+		major = ft_itoa(major(stat->st_rdev));
+		minor = ft_itoa(minor(stat->st_rdev));
+		new = ft_strjoin(major, ", ");
+		new = ft_strjoin(new, minor);
+		return (new);
+	}
+	return (ft_itoa(stat->st_size));
+}
 
 char			*get_link_infos(char const *path)
 {
@@ -61,8 +78,8 @@ static char		get_additional_infos(char *path)
 char			*permissions(t_stat *cp, char *path)
 {
 	char	*str;
-	str = ft_strnew(11);
 
+	str = ft_strnew(11);
 	if (str)
 	{
 		str[0] = perm_type(cp);

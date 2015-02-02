@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_insert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 18:52:27 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/02 14:23:47 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	lstsort(t_list **list, t_cmp cmp, int rev)
 		tmp_n = it->next;
 		while (tmp_n)
 		{
-		 	if (cmp((t_info *)tmp->content, (t_info *)tmp_n->content, rev) < 0)
+			if (cmp((t_info *)tmp->content, (t_info *)tmp_n->content, rev) < 0)
 			{
 				tmp_c = tmp->content;
 				tmp->content = tmp_n->content;

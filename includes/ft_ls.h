@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 22:55:36 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/02 14:20:33 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@
 # include <time.h>
 # include <stdio.h>
 # include "libft.h"
-
-// 0000 0000 0000 1000
-
-// 0010 |= 1001 == 1011
-
-// flags & FLAG_A
-// 1001    0010    0000
-
-// # define FLAG_A 1<<4
 
 # define SIX_MONTHS 15552000
 
@@ -97,7 +88,6 @@ typedef struct	s_size
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-
 void			lstsort(t_list **list, t_cmp cmp, int rev);
 void			lstaddinfo(t_list **list, const t_info *info);
 int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
@@ -121,6 +111,7 @@ char			*get_link_infos(char const *path);
 void			print_lopt(t_list *list, t_opt *opt);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
+char			*get_size(t_stat *stat);
 
 /*
 ** Sort tools

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/02 14:20:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/03 13:36:58 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct	s_opt
 	int		l_flag;
 	int		t_flag;
 	int		re_flag;
+	int		f_flag;
 }				t_opt;
 
 typedef struct	s_ldata
@@ -123,7 +124,6 @@ typedef struct	s_sort
 }				t_sort;
 
 t_list			*ft_r(t_list *list);
-t_list			*ft_l(t_list *list);
 t_list			*ft_t(t_list *list);
 
 /*

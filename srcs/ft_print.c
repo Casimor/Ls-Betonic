@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/01 22:44:13 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/03 13:40:02 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void	ft_print_ls(t_opt *opt, t_list *lst)
 {
 	while (lst)
 	{
-		if (!opt->a_flag && ((t_info *)(lst->content))->name[0] == '.')
+		if (!opt->f_flag && !opt->a_flag && \
+			((t_info *)(lst->content))->name[0] == '.')
 		{
 			lst = lst->next;
 			continue ;

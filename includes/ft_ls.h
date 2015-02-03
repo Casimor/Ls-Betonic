@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 22:55:36 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/03 15:51:26 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@
 # include <time.h>
 # include <stdio.h>
 # include "libft.h"
-
-// 0000 0000 0000 1000
-
-// 0010 |= 1001 == 1011
-
-// flags & FLAG_A
-// 1001    0010    0000
-
-// # define FLAG_A 1<<4
 
 # define SIX_MONTHS 15552000
 
@@ -109,7 +100,7 @@ void			ft_ls(t_opt *opt, t_ldata *data);
 /*
 ** Display
 */
-void			display(t_opt *opt, t_files *files, size_t i);
+void			display(t_opt *opt, t_files *files, size_t i, int is_recurs);
 void			display_error(t_ldata *data);
 
 /*
@@ -132,9 +123,13 @@ typedef struct	s_sort
 }				t_sort;
 
 t_list			*ft_r(t_list *list);
-t_list			*ft_l(t_list *list);
 t_list			*ft_t(t_list *list);
 
+/*
+** Recursiv tools
+*/
+void			get_dir_list(t_list **list);
+void			free_lst(void *lst, size_t i);
 /*
 ** Parser
 */

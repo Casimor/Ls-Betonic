@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 18:10:20 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/03 00:04:31 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	new_elem->timesec = stat.st_mtimespec;
 	new_elem->blocks = stat.st_blocks;
 	new_elem->link_info = get_link_infos(str);
+	new_elem->path = ft_strdup(str);
 	free(str);
 	return (new_elem);
 }

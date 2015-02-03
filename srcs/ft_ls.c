@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/01 22:07:08 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/03 00:03:10 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 	while (f_lst)
 	{
 		files = f_lst->content;
-		display(opt, files, i);
+		display(opt, files, i, 0);
 		f_lst = f_lst->next;
 	}
 	ft_free_lst(&data->file_lst);

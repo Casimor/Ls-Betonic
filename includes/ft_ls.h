@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 13:36:58 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/03 13:51:57 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct	s_opt
 	int		t_flag;
 	int		re_flag;
 	int		f_flag;
+	int		g_flag;
 }				t_opt;
 
 typedef struct	s_ldata
@@ -113,6 +114,12 @@ void			print_lopt(t_list *list, t_opt *opt);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
 char			*get_size(t_stat *stat);
+
+
+/*
+** Option -g
+*/
+void			print_gopt(t_list *list, t_opt *opt);
 
 /*
 ** Sort tools

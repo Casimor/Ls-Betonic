@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/03 13:40:02 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/03 13:52:50 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void		ft_print(t_opt *opt, t_list *lst, char *name, size_t s_file)
 	}
 	else
 	{
-		if (opt->l_flag)
+		if (opt->g_flag)
+			print_gopt(lst, opt);
+		else if (opt->l_flag)
 			print_lopt(lst, opt);
 		else
 			ft_print_ls(opt, lst);

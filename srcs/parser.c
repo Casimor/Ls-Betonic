@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 11:28:52 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 13:37:23 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/03 13:51:43 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		parse_cmd(char *cmd, t_opt *opt)
 	cmd++;
 	while (*cmd)
 	{
-		if (!ft_strchr("-lartRf", *cmd))
+		if (!ft_strchr("-lartRfg", *cmd))
 			illegal_option_error(cmd);
 		if (*cmd == '-')
 			return (1);
@@ -27,6 +27,7 @@ static int		parse_cmd(char *cmd, t_opt *opt)
 		opt->t_flag |= (*cmd == 't');
 		opt->re_flag |= (*cmd == 'R');
 		opt->f_flag |= (*cmd == 'f');
+		opt->g_flag |= (*cmd == 'g');
 		cmd++;
 	}
 	return (0);

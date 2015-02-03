@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_l.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 13:55:33 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/03 17:13:19 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static size_t	find_max_size(t_list *list, size_t mem_offset, t_opt *opt)
 			list = list->next;
 			continue ;
 		}
+		//segfault when number instead of wheel
 		cur_len = ft_strlen(*((char**)((char*)(list->content) + mem_offset)));
 		if (cur_len > max)
 			max = cur_len;
@@ -91,6 +92,7 @@ void			print_lopt(t_list *list, t_opt *opt)
 	max.mode = find_max_size(list, sizeof(char*) * 0, opt);
 	max.link = find_max_size(list, sizeof(char*) * 1, opt);
 	max.user = find_max_size(list, sizeof(char*) * 2, opt);
+	// segfault start point
 	max.group = find_max_size(list, sizeof(char*) * 3, opt);
 	max.fsize = find_max_size(list, sizeof(char*) * 4, opt);
 	total = get_total(list, opt);

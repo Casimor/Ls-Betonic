@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_l.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 23:06:49 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/03 13:43:39 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void		print(t_list *list, t_size *max, t_opt *opt)
 {
 	while (list)
 	{
-		if (!opt->a_flag && ((t_info *)(list->content))->name[0] == '.')
+		if (!opt->f_flag && !opt->a_flag && \
+			((t_info *)(list->content))->name[0] == '.')
 		{
 			list = list->next;
 			continue ;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_l.c                                          :+:      :+:    :+:   */
+/*   print_g.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 13:55:33 by bchevali         ###   ########.fr       */
+/*   Created: 2015/02/03 13:49:06 by bchevali          #+#    #+#             */
+/*   Updated: 2015/02/03 13:50:32 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void		print(t_list *list, t_size *max, t_opt *opt)
 		}
 		set_padding(((t_info *)(list->content))->mode, max->mode, 1);
 		set_padding_nbr(((t_info *)(list->content))->link, max->link);
-		set_padding(((t_info *)(list->content))->usr, max->user, 2);
 		set_padding(((t_info *)(list->content))->grp, max->group, 2);
 		set_padding_nbr(((t_info *)(list->content))->size, max->fsize);
 		set_padding(((t_info *)(list->content))->time,
@@ -83,14 +82,13 @@ static size_t	find_max_size(t_list *list, size_t mem_offset, t_opt *opt)
 	return (max);
 }
 
-void			print_lopt(t_list *list, t_opt *opt)
+void			print_gopt(t_list *list, t_opt *opt)
 {
 	t_size	max;
 	size_t	total;
 
 	max.mode = find_max_size(list, sizeof(char*) * 0, opt);
 	max.link = find_max_size(list, sizeof(char*) * 1, opt);
-	max.user = find_max_size(list, sizeof(char*) * 2, opt);
 	max.group = find_max_size(list, sizeof(char*) * 3, opt);
 	max.fsize = find_max_size(list, sizeof(char*) * 4, opt);
 	total = get_total(list, opt);

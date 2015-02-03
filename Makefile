@@ -39,8 +39,13 @@ SRC					=	main.c           \
 						display.c        \
 						sort_tools.c     \
 						print_l.c        \
+<<<<<<< HEAD
 						padding.c		 \
 						recursiv_tools.c
+=======
+						padding.c        \
+						print_g.c
+>>>>>>> b68358d31c0be10bce723c32954bbb2e80ff8e0f
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 00:05:42 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/03 15:53:51 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	lstsort(t_list **list, t_cmp cmp, int rev)
 		tmp_n = it->next;
 		while (tmp_n)
 		{
-		 	if (cmp((t_info *)tmp->content, (t_info *)tmp_n->content, rev) < 0)
+			if (cmp((t_info *)tmp->content, (t_info *)tmp_n->content, rev) < 0)
 			{
 				tmp_c = tmp->content;
 				tmp->content = tmp_n->content;

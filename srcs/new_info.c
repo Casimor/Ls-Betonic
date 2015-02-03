@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 00:04:31 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/03 15:53:39 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	new_elem->link = ft_itoa(stat.st_nlink);
 	new_elem->usr = get_user_name(stat.st_uid);
 	new_elem->grp = get_grp_name(stat.st_gid);
-	new_elem->size = ft_itoa(stat.st_size);
+	// new_elem->size = ft_itoa(stat.st_size);
+	new_elem->size = get_size(&stat);
 	new_elem->time = get_time(&stat.st_mtimespec);
 	new_elem->name = dirent->d_name;
 	new_elem->timesec = stat.st_mtimespec;

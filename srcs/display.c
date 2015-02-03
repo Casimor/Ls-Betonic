@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/03 15:51:06 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/03 15:54:05 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void			apply_display_flag(t_list **list, t_opt *opt)
 		{opt->r_flag, ft_r}};
 
 	i = 0;
-	lstsort(list, cmp_lexico, 1);
+	if (!opt->f_flag)
+		lstsort(list, cmp_lexico, 1);
 	while (i < sizeof(flag_tab) / sizeof(t_sort))
 	{
 		if (flag_tab[i].flag == 1)

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 15:51:26 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/03 15:54:16 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct	s_opt
 	int		l_flag;
 	int		t_flag;
 	int		re_flag;
+	int		f_flag;
+	int		g_flag;
 }				t_opt;
 
 typedef struct	s_ldata
@@ -88,7 +90,6 @@ typedef struct	s_size
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
-
 void			lstsort(t_list **list, t_cmp cmp, int rev);
 void			lstaddinfo(t_list **list, const t_info *info);
 int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
@@ -112,6 +113,13 @@ char			*get_link_infos(char const *path);
 void			print_lopt(t_list *list, t_opt *opt);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
+char			*get_size(t_stat *stat);
+
+
+/*
+** Option -g
+*/
+void			print_gopt(t_list *list, t_opt *opt);
 
 /*
 ** Sort tools

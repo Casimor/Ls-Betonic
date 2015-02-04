@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 19:21:15 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/04 22:38:56 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,27 @@ static size_t	get_total(t_list *list)
 
 static void		findmm_max(t_list *list, t_size *max, size_t memoff)
 {
-	size_t	i;
-	size_t	j;
+	size_t	i[2];
 	char	*str;
 
-	i = j = 0;
+	ft_bzero(i, sizeof(i));
 	while (list)
 	{
 		if (ft_strchr(*((char**)((char*)(list->content) + memoff)), ','))
 		{
 			str = ft_strdup(*((char**)((char*)(list->content) + memoff)));
-			while (str[i])
+			while (str[i[0]])
 			{
-				if (str[i] == ',')
+				if (str[i[0]] == ',')
 				{
-					j = i;
-					if (i > max->major)
-						max->major = i;
+					i[1] = i[0];
+					if (i[0] > max->major)
+						max->major = i[0];
 				}
-				i++;
+				i[0]++;
 			}
-			if ((i - j) > max->minor)
-				max->minor = i - j;
+			if ((i[0] - i[1]) > max->minor)
+				max->minor = i[0] - i[1];
 			free(str);
 		}
 		list = list->next;

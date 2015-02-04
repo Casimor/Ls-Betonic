@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 14:14:46 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/04 19:17:42 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ typedef struct	s_sort
 
 t_list			*ft_r(t_list *list);
 t_list			*ft_t(t_list *list);
+t_list			*ft_a(t_list *list);
+t_list			*ft_f(t_list *list);
 
 /*
 ** Recursiv tools

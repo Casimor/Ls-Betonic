@@ -6,11 +6,23 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 22:34:30 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 23:03:38 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/04 13:22:54 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void		set_padding_major_minor(char *content)
+{
+	char	*str;
+	size_t	i;
+
+	(void)str;
+	(void)i;
+	(void)content;
+	// i = 0;
+	// str = ft_memalloc(ft_strlen(content) + 2);
+}
 
 void		set_padding_nbr(char *content, size_t size)
 {

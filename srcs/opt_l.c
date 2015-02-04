@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/02 15:33:55 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/02 23:02:11 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char			*get_size(t_stat *stat)
 	{
 		major = ft_itoa(major(stat->st_rdev));
 		minor = ft_itoa(minor(stat->st_rdev));
-		new = ft_strjoin(major, ", ");
+		new = ft_strjoin(major, ",");
 		new = ft_strjoin(new, minor);
 		return (new);
 	}

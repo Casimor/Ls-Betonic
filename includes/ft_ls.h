@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/02 14:20:33 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/02 23:24:57 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ typedef struct	s_size
 	size_t	user;
 	size_t	group;
 	size_t	fsize;
+	size_t	minor;
+	size_t	major;
 }				t_size;
 
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
@@ -111,6 +113,7 @@ char			*get_link_infos(char const *path);
 void			print_lopt(t_list *list, t_opt *opt);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
+void			set_padding_major_minor(char *content);
 char			*get_size(t_stat *stat);
 
 /*

@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 13:35:04 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/04 13:58:54 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,11 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	// new_elem->size = ft_itoa(stat.st_size);
 	new_elem->size = get_size(&stat);
 	new_elem->time = get_time(&stat.st_mtimespec);
-	new_elem->name = dirent->d_name;
+	new_elem->name = ft_strdup(dirent->d_name);
 	new_elem->timesec = stat.st_mtimespec;
 	new_elem->blocks = stat.st_blocks;
 	new_elem->link_info = get_link_infos(str);
+	new_elem->path = ft_strdup(str);
 	free(str);
 	return (new_elem);
 }

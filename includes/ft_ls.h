@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/02 23:24:57 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/04 14:14:46 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct	s_opt
 	int		l_flag;
 	int		t_flag;
 	int		re_flag;
+	int		f_flag;
+	int		g_flag;
 }				t_opt;
 
 typedef struct	s_ldata
@@ -101,7 +103,7 @@ void			ft_ls(t_opt *opt, t_ldata *data);
 /*
 ** Display
 */
-void			display(t_opt *opt, t_files *files, size_t i);
+void			display(t_opt *opt, t_files *files, size_t i, int is_recurs);
 void			display_error(t_ldata *data);
 
 /*
@@ -113,8 +115,14 @@ char			*get_link_infos(char const *path);
 void			print_lopt(t_list *list, t_opt *opt);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
-void			set_padding_major_minor(char *content);
+void			set_padding_major_minor(char *content, t_size *max);
 char			*get_size(t_stat *stat);
+
+
+/*
+** Option -g
+*/
+void			print_gopt(t_list *list, t_opt *opt);
 
 /*
 ** Sort tools
@@ -126,9 +134,13 @@ typedef struct	s_sort
 }				t_sort;
 
 t_list			*ft_r(t_list *list);
-t_list			*ft_l(t_list *list);
 t_list			*ft_t(t_list *list);
 
+/*
+** Recursiv tools
+*/
+void			get_dir_list(t_list **list);
+void			free_lst(void *lst, size_t i);
 /*
 ** Parser
 */

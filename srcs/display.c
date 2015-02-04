@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/04 19:11:10 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/04 19:19:01 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,6 @@ static void			recursiv_display(t_opt *opt, t_list *list)
 	tmp = list;
 	while (tmp)
 	{
-		if (!opt->a_flag && ((t_info *)(tmp->content))->name[0] == '.')
-		{
-			tmp = tmp->next;
-			continue ;
-		}
 		if ((dir = opendir(((t_info*)tmp->content)->path)))
 		{
 			files = create_tfiles(((t_info*)tmp->content)->path, dir);

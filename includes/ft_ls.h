@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 19:17:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/04 19:21:58 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void			display_error(t_ldata *data);
 char			*permissions(struct stat *cp, char *path);
 t_info			*new_info(t_dirent *dirent, char const *path);
 char			*get_link_infos(char const *path);
-void			print_lopt(t_list *list, t_opt *opt);
+void			print_lopt(t_list *list);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
 void			set_padding_major_minor(char *content, t_size *max);
@@ -122,7 +122,7 @@ char			*get_size(t_stat *stat);
 /*
 ** Option -g
 */
-void			print_gopt(t_list *list, t_opt *opt);
+void			print_gopt(t_list *list);
 
 /*
 ** Sort tools

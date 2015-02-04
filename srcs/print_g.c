@@ -3,25 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   print_g.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/03 13:49:06 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/03 13:50:32 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/04 19:21:31 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void		print(t_list *list, t_size *max, t_opt *opt)
+static void		print(t_list *list, t_size *max)
 {
 	while (list)
 	{
-		if (!opt->f_flag && !opt->a_flag && \
-			((t_info *)(list->content))->name[0] == '.')
-		{
-			list = list->next;
-			continue ;
-		}
 		set_padding(((t_info *)(list->content))->mode, max->mode, 1);
 		set_padding_nbr(((t_info *)(list->content))->link, max->link);
 		set_padding(((t_info *)(list->content))->grp, max->group, 2);
@@ -41,26 +35,20 @@ static void		print(t_list *list, t_size *max, t_opt *opt)
 	}
 }
 
-static size_t	get_total(t_list *list, t_opt *opt)
+static size_t	get_total(t_list *list)
 {
 	size_t	total;
 
 	total = 0;
 	while (list)
 	{
-		if (!opt->f_flag && !opt->a_flag && \
-			((t_info *)(list->content))->name[0] == '.')
-		{
-			list = list->next;
-			continue ;
-		}
 		total += ((t_info *)(list->content))->blocks;
 		list = list->next;
 	}
 	return (total);
 }
 
-static size_t	find_max_size(t_list *list, size_t mem_offset, t_opt *opt)
+static size_t	find_max_size(t_list *list, size_t mem_offset)
 {
 	size_t	cur_len;
 	size_t	max;
@@ -68,12 +56,6 @@ static size_t	find_max_size(t_list *list, size_t mem_offset, t_opt *opt)
 	max = 0;
 	while (list)
 	{
-		if (!opt->f_flag && !opt->a_flag && \
-			((t_info *)(list->content))->name[0] == '.')
-		{
-			list = list->next;
-			continue ;
-		}
 		cur_len = ft_strlen(*((char**)((char*)(list->content) + mem_offset)));
 		if (cur_len > max)
 			max = cur_len;
@@ -82,18 +64,18 @@ static size_t	find_max_size(t_list *list, size_t mem_offset, t_opt *opt)
 	return (max);
 }
 
-void			print_gopt(t_list *list, t_opt *opt)
+void			print_gopt(t_list *list)
 {
 	t_size	max;
 	size_t	total;
 
-	max.mode = find_max_size(list, sizeof(char*) * 0, opt);
-	max.link = find_max_size(list, sizeof(char*) * 1, opt);
-	max.group = find_max_size(list, sizeof(char*) * 3, opt);
-	max.fsize = find_max_size(list, sizeof(char*) * 4, opt);
-	total = get_total(list, opt);
+	max.mode = find_max_size(list, sizeof(char*) * 0);
+	max.link = find_max_size(list, sizeof(char*) * 1);
+	max.group = find_max_size(list, sizeof(char*) * 3);
+	max.fsize = find_max_size(list, sizeof(char*) * 4);
+	total = get_total(list);
 	ft_putstr("total ");
 	ft_putnbr(total);
 	ft_putchar('\n');
-	print(list, &max, opt);
+	print(list, &max);
 }

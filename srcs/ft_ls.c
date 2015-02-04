@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 17:08:45 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/04 22:06:50 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/04 22:35:23 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	ft_ls(t_opt *opt, t_ldata *data)
 		display(opt, files, i, 0);
 		f_lst = f_lst->next;
 	}
-	ft_lstdel(&data->file_lst, free_tfiles_lst);
+	ft_free_lst(&data->file_lst);
 }

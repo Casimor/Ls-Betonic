@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 18:18:40 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/03 00:03:27 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/04 21:48:28 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,16 @@
 void		free_lst(void *lst, size_t i)
 {
 	(void)i;
-	free(((t_list*)lst)->content);
+	free(((t_info*)lst)->mode);
+	free(((t_info*)lst)->name);
+	free(((t_info*)lst)->link);
+	free(((t_info*)lst)->usr);
+	free(((t_info*)lst)->grp);
+	free(((t_info*)lst)->size);
+	free(((t_info*)lst)->time);
+	free(((t_info*)lst)->link_info);
+	free(((t_info*)lst)->path);
+	free(((t_info*)lst));
 }
 
 void		get_dir_list(t_list **list)

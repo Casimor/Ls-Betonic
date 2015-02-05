@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_l.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 17:56:18 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 19:11:14 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ static void		print(t_list *list, t_size *max)
 		set_padding_nbr(((t_info *)(list->content))->link, max->link);
 		set_padding(((t_info *)(list->content))->usr, max->user, 2);
 		set_padding(((t_info *)(list->content))->grp, max->group, 2);
-
 		handle_size(list, max);
-
 		set_padding(((t_info *)(list->content))->time,
 			ft_strlen(((t_info *)(list->content))->time), 1);
 		set_padding(((t_info *)(list->content))->name,

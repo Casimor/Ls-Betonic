@@ -6,23 +6,19 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 22:34:30 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 23:22:17 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 17:30:17 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		set_padding_major_minor(char *content, t_size *max)
+static void	loop(char *str, char **maj_min, t_size *max)
 {
-	char	**maj_min;
-	char	*str;
 	size_t	i;
 	size_t	n;
 
 	i = 1;
 	n = 0;
-	maj_min = ft_strsplit(content, ',');
-	str = ft_memalloc(max->major + max->minor + 5);
 	str[0] = ' ';
 	while (i <= max->major)
 	{
@@ -42,8 +38,19 @@ void		set_padding_major_minor(char *content, t_size *max)
 			str[i++] = maj_min[1][n++];
 	}
 	str[i] = ' ';
+}
+
+void		set_padding_major_minor(char *content, t_size *max)
+{
+	char	**maj_min;
+	char	*str;
+
+	maj_min = ft_strsplit(content, ',');
+	str = ft_memalloc(max->major + max->minor + 5);
+	loop(str, maj_min, max);
 	ft_putstr(str);
 	free(str);
+	free(maj_min);
 }
 
 void		set_padding_nbr(char *content, size_t size)

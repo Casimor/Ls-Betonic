@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/04 22:34:53 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/05 11:35:24 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	// const t_sort	flag_tab[] = {
 		// {opt->f_flag, ft_f},
 		// {opt->a_flag, ft_a}};
-// 
+//
 	// i = 0;
 	// while (i < sizeof(flag_tab) / sizeof(t_sort))
 	// {

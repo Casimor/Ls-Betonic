@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 19:37:14 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 17:54:50 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ static char		*get_grp_name(gid_t gid)
 {
 	struct group	*get_group;
 
-	get_group = getgrgid(gid);
-	if (get_group != NULL)
+	if ((get_group = getgrgid(gid)) == 0)
+		return (ft_itoa(gid));
+	else
 		return (ft_strdup(get_group->gr_name));
 	return (NULL);
 }

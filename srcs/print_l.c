@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 17:41:02 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 17:56:18 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ static size_t	find_max_size(t_list *list, size_t mem_offset)
 	max = 0;
 	while (list)
 	{
-		//segfault when number instead of wheel
 		cur_len = ft_strlen(*((char**)((char*)(list->content) + mem_offset)));
 		if (cur_len > max)
 			max = cur_len;
@@ -106,7 +105,6 @@ void			print_lopt(t_list *list)
 	max.mode = find_max_size(list, sizeof(char*) * 0);
 	max.link = find_max_size(list, sizeof(char*) * 1);
 	max.user = find_max_size(list, sizeof(char*) * 2);
-	// segfault start point
 	max.group = find_max_size(list, sizeof(char*) * 3);
 	max.fsize = find_max_size(list, sizeof(char*) * 4);
 	findmm_max(list, &max, sizeof(char*) * 4);

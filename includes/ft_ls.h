@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 17:41:27 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 19:46:34 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,9 @@ void			print_lopt(t_list *list);
 void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
 void			set_padding_major_minor(char *content, t_size *max);
-char			*get_size(t_stat *stat);
+char			*get_size(t_stat *stat, char *mode);
 void			handle_size(t_list *list, t_size *max);
+char			third_mode(int cond1, int cond2, char first, char second);
 
 /*
 ** Option -g

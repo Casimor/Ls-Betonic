@@ -28,6 +28,7 @@ LFLAGS				=	-L$(LIBFT_DIR) -l$(LIBFT) -o
 
 SRC					=	main.c           \
 						opt_l.c          \
+						opt_l2.c         \
 						new_info.c       \
 						ft_insert.c      \
 						comparators.c    \

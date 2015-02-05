@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/04 19:32:41 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 19:46:20 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static t_bit g_perm[8] = {
 	{ S_IFWHT, 'w' }
 };
 
-char			*get_size(t_stat *stat)
+char			*get_size(t_stat *stat, char *mode)
 {
 	char	*major;
 	char	*minor;
 	char	*new;
 
-	if (major(stat->st_rdev) || minor(stat->st_rdev))
+	if ((mode[0] == 'b') || (mode[0] == 'c'))
 	{
 		major = ft_itoa(major(stat->st_rdev));
 		minor = ft_itoa(minor(stat->st_rdev));
@@ -80,20 +80,22 @@ static char		get_additional_infos(char *path)
 char			*permissions(t_stat *cp, char *path)
 {
 	char	*str;
+	int		mode;
 
+	mode = cp->st_mode;
 	str = ft_strnew(11);
 	if (str)
 	{
 		str[0] = perm_type(cp);
-		str[1] = (cp->st_mode & S_IRUSR ? 'r' : '-');
-		str[2] = (cp->st_mode & S_IWUSR ? 'w' : '-');
-		str[3] = (cp->st_mode & S_IXUSR ? 'x' : '-');
-		str[4] = (cp->st_mode & S_IRGRP ? 'r' : '-');
-		str[5] = (cp->st_mode & S_IWGRP ? 'w' : '-');
-		str[6] = (cp->st_mode & S_IXGRP ? 'x' : '-');
-		str[7] = (cp->st_mode & S_IROTH ? 'r' : '-');
-		str[8] = (cp->st_mode & S_IWOTH ? 'w' : '-');
-		str[9] = (cp->st_mode & S_IXOTH ? 'x' : '-');
+		str[1] = (mode & S_IRUSR ? 'r' : '-');
+		str[2] = (mode & S_IWUSR ? 'w' : '-');
+		str[3] = third_mode(mode & S_IXUSR, mode & S_ISUID, 's', 'S');
+		str[4] = (mode & S_IRGRP ? 'r' : '-');
+		str[5] = (mode & S_IWGRP ? 'w' : '-');
+		str[6] = third_mode(mode & S_IXGRP, mode & S_ISGID, 's', 'S');
+		str[7] = (mode & S_IROTH ? 'r' : '-');
+		str[8] = (mode & S_IWOTH ? 'w' : '-');
+		str[9] = third_mode(mode & S_IXOTH, mode & S_ISVTX, 't', 'T');
 		str[10] = get_additional_infos(path);
 	}
 	return (str);

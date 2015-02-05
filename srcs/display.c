@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 16:56:58 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/05 17:07:45 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 static void			apply_display_flag(t_list **list, t_opt *opt)
 {
 	size_t			i;
-	t_sort	flag_tab[] = {
-		{opt->f_flag, ft_f, 0},
-		{opt->a_flag, ft_a, 0},
-		{opt->t_flag, ft_t, 1},
-		{opt->r_flag, ft_r, 1}};
-
+	const t_sort	flag_tab[] = {
+	{opt->f_flag, ft_f, 0},
+	{opt->a_flag, ft_a, 0},
+	{opt->t_flag, ft_t, 1},
+	{opt->r_flag, ft_r, 1}};
 	i = 0;
 	if (opt->f_flag == flag_tab[0].flag_check)
 	{

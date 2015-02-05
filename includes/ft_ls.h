@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 16:33:48 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/05 17:12:12 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ void			set_padding_nbr(char *content, size_t size);
 void			set_padding(char *content, size_t size, size_t end_space);
 void			set_padding_major_minor(char *content, t_size *max);
 char			*get_size(t_stat *stat);
-
 
 /*
 ** Option -g

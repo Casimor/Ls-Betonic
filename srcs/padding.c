@@ -6,7 +6,7 @@
 /*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 22:34:30 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 17:30:17 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/05 17:41:15 by ochase           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,23 @@ void		set_padding(char *content, size_t size, size_t end_space)
 		str[i++] = ' ';
 	ft_putstr(str);
 	free(str);
+}
+
+void		handle_size(t_list *list, t_size *max)
+{
+	static int	i = 0;
+
+	if (!ft_strchr(((t_info *)(list->content))->size, ','))
+	{
+		if (!i)
+			set_padding_nbr(((t_info *)(list->content))->size, max->fsize);
+		else
+			set_padding_nbr(((t_info *)(list->content))->size,
+				(max->major + max->minor + 3));
+	}
+	else
+	{
+		i = 1;
+		set_padding_major_minor(((t_info *)(list->content))->size, max);
+	}
 }

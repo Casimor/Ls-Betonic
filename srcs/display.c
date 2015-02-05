@@ -3,52 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/05 11:35:24 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/05 16:56:58 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-// static void			apply_display_flag2(t_list **list, t_opt *opt)
-// {
-	// size_t			i;
-	// const t_sort	flag_tab[] = {
-		// {opt->f_flag, ft_f},
-		// {opt->a_flag, ft_a}};
-//
-	// i = 0;
-	// while (i < sizeof(flag_tab) / sizeof(t_sort))
-	// {
-		// if (flag_tab[i].flag == 0)
-			// *list = flag_tab[i].f(*list);
-		// i++;
-	// }
-// }
-
 static void			apply_display_flag(t_list **list, t_opt *opt)
 {
 	size_t			i;
-	const t_sort	flag_tab[] = {
-		{opt->t_flag, ft_t},
-		{opt->r_flag, ft_r}};
-	const t_sort	iflag_tab[] = {
-		{opt->f_flag, ft_f},
-		{opt->a_flag, ft_a}};
+	t_sort	flag_tab[] = {
+		{opt->f_flag, ft_f, 0},
+		{opt->a_flag, ft_a, 0},
+		{opt->t_flag, ft_t, 1},
+		{opt->r_flag, ft_r, 1}};
 
 	i = 0;
-	if (opt->f_flag)
-		opt->a_flag = 1;
-	// apply_display_flag2(list, opt);
-	while (i < sizeof(flag_tab) / sizeof(t_sort))
+	if (opt->f_flag == flag_tab[0].flag_check)
 	{
-		if (iflag_tab[i].flag == 0)
-			*list = iflag_tab[i].f(*list);
-		if (flag_tab[i].flag == 1)
-			*list = flag_tab[i].f(*list);
-		i++;
+		while (i < sizeof(flag_tab) / sizeof(t_sort))
+		{
+			if (flag_tab[i].flag == flag_tab[i].flag_check)
+				*list = flag_tab[i].f(*list);
+			i++;
+		}
 	}
 }
 

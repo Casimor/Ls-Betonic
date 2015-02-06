@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 19:46:34 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 23:33:52 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void			ft_ls(t_opt *opt, t_ldata *data);
 ** Display
 */
 void			display(t_opt *opt, t_files *files, size_t i, int is_recurs);
-void			display_error(t_ldata *data);
+void			display_error(t_list *err_lst);
 
 /*
 ** Option -l

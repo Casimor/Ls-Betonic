@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/29 18:36:11 by bboumend          #+#    #+#             */
-/*   Updated: 2015/01/30 13:57:23 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 23:38:09 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ static void	sort_lst(t_list *err_lst)
 	}
 }
 
-void		display_error(t_ldata *data)
+void		display_error(t_list *err_lst)
 {
-	t_list	*err_lst;
 	t_files	*files;
 
-	err_lst = data->err_lst;
+	if (!err_lst)
+		return ;
 	sort_lst(err_lst);
 	while (err_lst)
 	{

@@ -6,7 +6,7 @@
 /*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:57 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 19:49:45 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/06 23:15:39 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 
 	(void)argc;
 	parser(argv, &opt, &data);
-	if (!data.file_lst)
+	if (!data.file_lst && !data.err_lst)
 		ft_lstpushback(&data.file_lst,
 			ft_lstnew(create_tfiles(".", opendir(".")), sizeof(t_files)));
 	ft_ls(&opt, &data);

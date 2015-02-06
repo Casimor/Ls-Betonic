@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 19:03:25 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 23:59:01 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 	if (new_elem == NULL)
 		return (NULL);
 	str = join_path(path, dirent->d_name);
+	//segfault ici
 	lstat(str, &stat);
 	new_elem->mode = permissions(&stat, str);
 	new_elem->link = ft_itoa(stat.st_nlink);

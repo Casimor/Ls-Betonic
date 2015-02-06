@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   opt_l.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 15:01:39 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 19:46:20 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/06 17:28:09 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ static char		perm_type(t_stat *cc)
 
 static char		get_additional_infos(char *path)
 {
-	char	buf[256];
-
-	if (listxattr(path, buf, 256, 0) > 0)
+	if (listxattr(path, 0, 255, XATTR_NOFOLLOW) > 0)
 		return ('@');
 	if (acl_get_link_np(path, ACL_TYPE_EXTENDED))
 		return ('+');

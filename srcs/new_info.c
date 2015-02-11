@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 14:08:01 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/06 23:59:01 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 16:47:11 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,25 @@ t_info			*new_info(t_dirent *dirent, char const *path)
 		return (NULL);
 	str = join_path(path, dirent->d_name);
 	//segfault ici
-	lstat(str, &stat);
-	new_elem->mode = permissions(&stat, str);
-	new_elem->link = ft_itoa(stat.st_nlink);
-	new_elem->usr = get_user_name(stat.st_uid);
-	new_elem->grp = get_grp_name(stat.st_gid);
-	new_elem->size = get_size(&stat, new_elem->mode);
-	new_elem->time = get_time(&stat.st_mtimespec);
-	new_elem->name = ft_strdup(dirent->d_name);
-	new_elem->timesec = stat.st_mtimespec;
-	new_elem->blocks = stat.st_blocks;
-	new_elem->link_info = get_link_infos(str);
-	new_elem->path = ft_strdup(str);
-	free(str);
-	return (new_elem);
+	if (lstat(str, &stat) >= 0)
+	{
+		new_elem->mode = permissions(&stat, str);
+		new_elem->link = ft_itoa(stat.st_nlink);
+		new_elem->usr = get_user_name(stat.st_uid);
+		new_elem->grp = get_grp_name(stat.st_gid);
+		new_elem->size = get_size(&stat, new_elem->mode);
+		new_elem->time = get_time(&stat.st_mtimespec);
+		new_elem->name = ft_strdup(dirent->d_name);
+		new_elem->timesec = stat.st_mtimespec;
+		new_elem->blocks = stat.st_blocks;
+		new_elem->link_info = get_link_infos(str);
+		new_elem->path = ft_strdup(str);
+		free(str);
+		return (new_elem);
+	}
+	else
+	{
+		new_elem = NULL;
+		return (new_elem);
+	}
 }

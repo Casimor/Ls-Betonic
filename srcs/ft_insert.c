@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_insert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/03 15:53:51 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/11 16:52:37 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void	lstaddinfo(t_list **list, const t_info *info)
 	t_list	*new_elem;
 	t_list	*it;
 
+	//Return si on a pas lstat le dir
+	if (!info)
+		return ;
 	new_elem = ft_lstnew(info, sizeof(t_info));
 	if (!*list)
 		ft_lstadd(list, new_elem);

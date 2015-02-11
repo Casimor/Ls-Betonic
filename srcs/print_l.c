@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_l.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/01 18:39:53 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/05 19:48:11 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/11 19:29:32 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,11 @@ void			print_lopt(t_list *list)
 	max.fsize = find_max_size(list, sizeof(char*) * 4);
 	findmm_max(list, &max, sizeof(char*) * 4);
 	total = get_total(list);
-	ft_putstr("total ");
-	ft_putnbr(total);
-	ft_putchar('\n');
-	print(list, &max);
+	if (total > 0)
+	{
+		ft_putstr("total ");
+		ft_putnbr(total);
+		ft_putchar('\n');
+		print(list, &max);
+	}
 }

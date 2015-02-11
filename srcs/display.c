@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/11 16:52:01 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/11 19:31:12 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ void				display(t_opt *opt, t_files *files, size_t i, int is_recurs)
 	ft_print(opt, list, files->name, i);
 	if (opt->re_flag)
 	{
-		ft_putchar('\n');
+		if (list)
+			ft_putchar('\n');
 		recursiv_display(opt, list);
 	}
 	else

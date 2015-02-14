@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/06 23:33:52 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/13 12:14:27 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct	s_size
 typedef int	(*t_cmp)(const t_info *, const t_info *, int);
 
 void			lstsort(t_list **list, t_cmp cmp, int rev);
-void			lstaddinfo(t_list **list, const t_info *info);
+int				lstaddinfo(t_list **l, const t_info *i, t_dirent *d, t_opt *o);
 int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				cmp_time(const t_info *info1, const t_info *info2, int rev);
 
@@ -157,5 +157,7 @@ t_files			*create_tfiles(char *name, DIR *dir);
 */
 void			illegal_option_error(char *cmd);
 void			fts_error(void);
+int				perm_denied(t_list **list, char *name, t_opt *opt);
+void			print_perm_denied(t_list *list, char *name, size_t i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/11 16:52:37 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/13 12:14:02 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,25 @@ void	lstsort(t_list **list, t_cmp cmp, int rev)
 	}
 }
 
-void	lstaddinfo(t_list **list, const t_info *info)
+int		lstaddinfo(t_list **lst, const t_info *info, t_dirent *dir, t_opt *opt)
 {
 	t_list	*new_elem;
 	t_list	*it;
 
-	//Return si on a pas lstat le dir
 	if (!info)
-		return ;
+		return (perm_denied(lst, dir->d_name, opt));
 	new_elem = ft_lstnew(info, sizeof(t_info));
-	if (!*list)
-		ft_lstadd(list, new_elem);
+	if (!*lst)
+	{
+		ft_lstadd(lst, new_elem);
+		return (0);
+	}
 	else
 	{
-		it = *list;
+		it = *lst;
 		while (it->next)
 			it = it->next;
 		it->next = new_elem;
+		return (0);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/13 12:14:27 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/17 20:01:49 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,12 @@ void			lstsort(t_list **list, t_cmp cmp, int rev);
 int				lstaddinfo(t_list **l, const t_info *i, t_dirent *d, t_opt *o);
 int				cmp_lexico(const t_info *info1, const t_info *i, int rev);
 int				cmp_time(const t_info *info1, const t_info *info2, int rev);
+int				cmp_files(const t_info *file_1, const t_info *file_2, int rev);
+void			print_files(t_list *files, t_ldata *data);
+void			add_files(char *name, t_list **f_lst);
 
 void			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
-void			ft_ls(t_opt *opt, t_ldata *data);
+void			ft_ls(t_opt *opt, t_ldata *data, t_list *f_lst);
 
 /*
 ** Display
@@ -149,12 +152,13 @@ void			free_lst(void *lst, size_t i);
 /*
 ** Parser
 */
-void			parser(char **args, t_opt *opt, t_ldata *data);
+void			parser(char **args, t_opt *opt, t_ldata *data, t_list **files);
 t_files			*create_tfiles(char *name, DIR *dir);
 
 /*
 ** Error
 */
+void			sort_lst(t_list *err_lst);
 void			illegal_option_error(char *cmd);
 void			fts_error(void);
 int				perm_denied(t_list **list, char *name, t_opt *opt);

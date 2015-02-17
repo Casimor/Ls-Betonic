@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   comparators.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 18:12:02 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/01 18:35:42 by ochase           ###   ########.fr       */
+/*   Updated: 2015/02/17 19:57:44 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int		cmp_files(const t_info *file_1, const t_info *file_2, int rev)
+{
+	(void)rev;
+	return (-ft_strcmp((char*)file_1, (char*)file_2));
+}
 
 int		cmp_lexico(const t_info *info1, const t_info *info2, int rev)
 {

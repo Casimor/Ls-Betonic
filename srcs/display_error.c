@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/29 18:36:11 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/06 23:38:09 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/02/17 21:48:06 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	is_sort(char *s1, char *s2)
 		return (0);
 }
 
-static void	sort_lst(t_list *err_lst)
+void		sort_lst(t_list *err_lst)
 {
 	t_files	*files;
 	t_files	*files_n;

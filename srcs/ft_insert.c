@@ -6,11 +6,28 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/13 12:14:02 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/17 21:48:53 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void	add_files(char *name, t_list **f_lst)
+{
+	t_list	*it;
+	t_list	*new_elem;
+
+	new_elem = ft_lstnew(name, ft_strlen(name) + 1);
+	if (!*f_lst)
+		ft_lstadd(f_lst, new_elem);
+	else
+	{
+		it = *f_lst;
+		while (it->next)
+			it = it->next;
+		it->next = new_elem;
+	}
+}
 
 void	lstsort(t_list **list, t_cmp cmp, int rev)
 {

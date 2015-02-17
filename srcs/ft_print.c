@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/12 21:45:23 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/17 20:01:32 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ static void	ft_print_ls(t_list *lst)
 		ft_putendl(((t_info *)(lst->content))->name);
 		lst = lst->next;
 	}
+}
+
+void		print_files(t_list *files, t_ldata *data)
+{
+	if (!files)
+		return ;
+	lstsort(&files, cmp_files, 1);
+	while (files)
+	{
+		ft_putstr((char*)(files->content));
+		if (files->next)
+			ft_putchar(' ');
+		files = files->next;
+	}
+	if (data->file_lst)
+		ft_putchar('\n');
+	ft_putchar('\n');
 }
 
 void		print_perm_denied(t_list *list, char *name, size_t i)

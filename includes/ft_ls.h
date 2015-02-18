@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/17 20:01:49 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/18 17:22:26 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,12 +154,14 @@ void			free_lst(void *lst, size_t i);
 */
 void			parser(char **args, t_opt *opt, t_ldata *data, t_list **files);
 t_files			*create_tfiles(char *name, DIR *dir);
+int				parse_opt(char **av, t_opt *opt);
+void			check_dir(char **av, t_ldata *data, t_list **f_lst, int i);
 
 /*
 ** Error
 */
 void			sort_lst(t_list *err_lst);
-void			illegal_option_error(char *cmd);
+void			illegal_option_error(char cmd);
 void			fts_error(void);
 int				perm_denied(t_list **list, char *name, t_opt *opt);
 void			print_perm_denied(t_list *list, char *name, size_t i);

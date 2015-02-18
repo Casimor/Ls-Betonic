@@ -6,7 +6,7 @@
 #    By: ochase <ochase@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/26 19:10:59 by ochase            #+#    #+#              #
-#    Updated: 2013/12/15 14:20:38 by ochase           ###   ########.fr        #
+#    Updated: 2015/02/18 17:03:10 by bchevali         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -43,7 +43,8 @@ SRC					=	main.c           \
 						padding.c		 \
 						recursiv_tools.c \
 						padding.c        \
-						print_g.c
+						print_g.c		 \
+						parser_tools.c
 
 OBJ					=	$(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

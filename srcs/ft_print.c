@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/17 20:01:32 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/24 20:48:39 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void		ft_print(t_opt *opt, t_list *lst, char *name, size_t s_file)
 			print_lopt(lst);
 		else
 			ft_print_ls(lst);
-		if (!opt->re_flag)
-			ft_putchar('\n');
 	}
 	else
 	{

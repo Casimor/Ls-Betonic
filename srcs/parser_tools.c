@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 16:39:22 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/18 18:08:56 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/24 19:46:12 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		parse_cmd(char cmd, t_opt *opt)
 	opt->re_flag |= (cmd == 'R');
 	opt->f_flag |= (cmd == 'f');
 	opt->g_flag |= (cmd == 'g');
-	if (!ft_strchr("lartRfg", cmd))
+	if (!ft_strchr("lartRfg1", cmd))
 		illegal_option_error(cmd);
 	return (0);
 }

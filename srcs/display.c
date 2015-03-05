@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/14 18:49:10 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/02/27 20:00:07 by bboumend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void			recursiv_display(t_opt *opt, t_list *list)
 	t_files		*files;
 	DIR			*dir;
 
-	ft_putchar('\n');
 	get_dir_list(&list);
 	tmp = list;
 	err_lst = NULL;
@@ -52,17 +51,25 @@ static void			recursiv_display(t_opt *opt, t_list *list)
 		if ((dir = opendir(((t_info*)tmp->content)->path)))
 		{
 			files = create_tfiles(((t_info*)tmp->content)->path, dir);
+			ft_putchar('\n');
 			display(opt, files, 2, 1);
 			closedir(dir);
 			free(files);
 		}
 		else
+		{
+			ft_putchar('\n');
+			ft_putstr(((t_info*)tmp->content)->path);
+			ft_putendl(":");
 			ft_lstadd(&err_lst, ft_lstnew(\
-							create_tfiles(((t_info*)tmp->content)->path, dir), \
+							create_tfiles(((t_info*)tmp->content)->name, dir), \
 							sizeof(t_files)));
+			display_error(err_lst);
+			free(err_lst);
+			err_lst = NULL;
+		}
 		tmp = tmp->next;
 	}
-	display_error(err_lst);
 }
 
 void				display(t_opt *opt, t_files *files, size_t i, int is_rec)
@@ -76,7 +83,7 @@ void				display(t_opt *opt, t_files *files, size_t i, int is_rec)
 	while ((dirent = readdir(files->dir)))
 	{
 		if (is_rec && (!ft_strcmp(dirent->d_name, ".") ||
-							!ft_strcmp(dirent->d_name, "..")))
+						!ft_strcmp(dirent->d_name, "..")))
 			continue ;
 		ret += lstaddinfo(&list, new_info(dirent, files->name), dirent, opt);
 	}

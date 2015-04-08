@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/02/27 20:00:07 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/03/10 16:04:41 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void			apply_display_flag(t_list **list, t_opt *opt, int ret)
 	}
 }
 
-static void			recursiv_display(t_opt *opt, t_list *list)
+static void			recursiv_display(t_opt *opt, t_list *list, t_ldata *data)
 {
 	t_list		*tmp;
 	t_list		*err_lst;
@@ -52,7 +52,7 @@ static void			recursiv_display(t_opt *opt, t_list *list)
 		{
 			files = create_tfiles(((t_info*)tmp->content)->path, dir);
 			ft_putchar('\n');
-			display(opt, files, 2, 1);
+			display(opt, files, data, 1);
 			closedir(dir);
 			free(files);
 		}
@@ -72,7 +72,7 @@ static void			recursiv_display(t_opt *opt, t_list *list)
 	}
 }
 
-void				display(t_opt *opt, t_files *files, size_t i, int is_rec)
+void				display(t_opt *opt, t_files *files, t_ldata *dt, int is_rec)
 {
 	t_list			*list;
 	t_dirent		*dirent;
@@ -89,12 +89,12 @@ void				display(t_opt *opt, t_files *files, size_t i, int is_rec)
 	}
 	apply_display_flag(&list, opt, ret);
 	if (ret > 0)
-		print_perm_denied(list, files->name, i);
+		print_perm_denied(list, files->name, dt);
 	else
 	{
-		ft_print(opt, list, files->name, i);
+		ft_print(opt, list, files->name, dt);
 		if (opt->re_flag)
-			recursiv_display(opt, list);
+			recursiv_display(opt, list, dt);
 		else
 			ft_lstdel(&list, free_lst);
 	}

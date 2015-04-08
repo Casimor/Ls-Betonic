@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 19:11:54 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/18 17:22:26 by bchevali         ###   ########.fr       */
+/*   Updated: 2015/03/10 16:03:36 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct	s_ldata
 {
 	t_list	*file_lst;
 	t_list	*err_lst;
+	size_t	nb_file;
+	size_t	nb_dir;
 }				t_ldata;
 
 typedef struct	s_files
@@ -100,13 +102,13 @@ int				cmp_files(const t_info *file_1, const t_info *file_2, int rev);
 void			print_files(t_list *files, t_ldata *data);
 void			add_files(char *name, t_list **f_lst);
 
-void			ft_print(t_opt *opt, t_list *list, char *name, size_t nb_file);
+void			ft_print(t_opt *opt, t_list *list, char *name, t_ldata *data);
 void			ft_ls(t_opt *opt, t_ldata *data, t_list *f_lst);
 
 /*
 ** Display
 */
-void			display(t_opt *opt, t_files *files, size_t i, int is_recurs);
+void			display(t_opt *opt, t_files *files, t_ldata *dt, int is_recurs);
 void			display_error(t_list *err_lst);
 
 /*
@@ -164,6 +166,6 @@ void			sort_lst(t_list *err_lst);
 void			illegal_option_error(char cmd);
 void			fts_error(void);
 int				perm_denied(t_list **list, char *name, t_opt *opt);
-void			print_perm_denied(t_list *list, char *name, size_t i);
+void			print_perm_denied(t_list *list, char *name, t_ldata *data);
 
 #endif

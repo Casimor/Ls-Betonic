@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboumend <bboumend@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/28 18:32:15 by bchevali          #+#    #+#             */
-/*   Updated: 2015/02/24 20:48:39 by bboumend         ###   ########.fr       */
+/*   Updated: 2015/03/10 16:05:35 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void		print_files(t_list *files, t_ldata *data)
 	ft_putchar('\n');
 }
 
-void		print_perm_denied(t_list *list, char *name, size_t i)
+void		print_perm_denied(t_list *list, char *name, t_ldata *data)
 {
-	if (i > 1)
+	if (data->nb_dir > 1)
 	{
 		ft_putstr(name);
 		ft_putendl(":");
@@ -51,20 +51,26 @@ void		print_perm_denied(t_list *list, char *name, size_t i)
 		perror((char*)(list->content));
 		list = list->next;
 	}
-	if (i > 1)
+	if (data->nb_file > 1)
+	{
 		ft_putchar('\n');
+		data->nb_file -= 1;
+	}
 }
 
-void		ft_print(t_opt *opt, t_list *lst, char *name, size_t s_file)
+void		ft_print(t_opt *opt, t_list *lst, char *name, t_ldata *data)
 {
-	if (s_file > 1)
+	if (data->nb_dir > 1)
 	{
 		ft_putstr(name);
 		ft_putendl(":");
+		data->nb_file -= 1;
 		if (opt->l_flag)
 			print_lopt(lst);
 		else
 			ft_print_ls(lst);
+		if (data->nb_file >= 1)
+			ft_putchar('\n');
 	}
 	else
 	{

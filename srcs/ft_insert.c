@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2015/02/17 21:48:53 by bchevali         ###   ########.fr       */
+/*   Updated: 2016/02/13 19:26:03 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,10 @@
 
 void	add_files(char *name, t_list **f_lst)
 {
-	t_list	*it;
 	t_list	*new_elem;
 
 	new_elem = ft_lstnew(name, ft_strlen(name) + 1);
-	if (!*f_lst)
-		ft_lstadd(f_lst, new_elem);
-	else
-	{
-		it = *f_lst;
-		while (it->next)
-			it = it->next;
-		it->next = new_elem;
-	}
+	ft_lstpushback(f_lst, new_elem);
 }
 
 void	lstsort(t_list **list, t_cmp cmp, int rev)
@@ -58,22 +49,10 @@ void	lstsort(t_list **list, t_cmp cmp, int rev)
 int		lstaddinfo(t_list **lst, const t_info *info, t_dirent *dir, t_opt *opt)
 {
 	t_list	*new_elem;
-	t_list	*it;
 
 	if (!info)
 		return (perm_denied(lst, dir->d_name, opt));
 	new_elem = ft_lstnew(info, sizeof(t_info));
-	if (!*lst)
-	{
-		ft_lstadd(lst, new_elem);
-		return (0);
-	}
-	else
-	{
-		it = *lst;
-		while (it->next)
-			it = it->next;
-		it->next = new_elem;
-		return (0);
-	}
+	ft_lstpushback(lst, new_elem);
+	return (0);
 }

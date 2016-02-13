@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2016/02/13 16:36:06 by bchevali         ###   ########.fr       */
+/*   Updated: 2016/02/13 19:28:25 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 static void			apply_display_flag(t_list **list, t_opt *opt, int ret)
 {
 	size_t			i;
-	const t_sort	flag_tab[] =
-
-	{ \
+	const t_sort	flag_tab[] = { \
 	{opt->f_flag, ft_f, 0}, \
 	{opt->a_flag, ft_a, 0}, \
 	{opt->t_flag, ft_t, 1}, \
 	{opt->r_flag, ft_r, 1}};
+
 	i = 0;
 	if (ret > 0)
 		return ;
@@ -36,11 +35,23 @@ static void			apply_display_flag(t_list **list, t_opt *opt, int ret)
 	}
 }
 
+static void			recursiv_open(DIR *dir, t_opt *opt, char *path, t_ldata *dt)
+{
+	t_files		*files;
+
+	files = create_tfiles(path, dir);
+	ft_putchar('\n');
+	ft_putstr(files->name);
+	ft_putendl(":");
+	display(opt, files, dt, 1);
+	closedir(dir);
+	free(files);
+}
+
 static void			recursiv_display(t_opt *opt, t_list *list, t_ldata *data)
 {
 	t_list		*tmp;
 	t_list		*err_lst;
-	t_files		*files;
 	DIR			*dir;
 
 	get_dir_list(&list);
@@ -49,15 +60,7 @@ static void			recursiv_display(t_opt *opt, t_list *list, t_ldata *data)
 	while (tmp)
 	{
 		if ((dir = opendir(((t_info*)tmp->content)->path)))
-		{
-			files = create_tfiles(((t_info*)tmp->content)->path, dir);
-			ft_putchar('\n');
-			ft_putstr(files->name);
-			ft_putendl(":");
-			display(opt, files, data, 1);
-			closedir(dir);
-			free(files);
-		}
+			recursiv_open(dir, opt, ((t_info*)tmp->content)->path, data);
 		else
 		{
 			ft_putchar('\n');
@@ -84,15 +87,7 @@ void				display(t_opt *opt, t_files *files, t_ldata *dt, int is_rec)
 	list = NULL;
 	(void)is_rec;
 	while ((dirent = readdir(files->dir)))
-	{
-		// if (is_rec && (!ft_strcmp(dirent->d_name, ".") ||
-						// !ft_strcmp(dirent->d_name, "..")))
-		// {
-			// printf("%s\n", dirent->d_name);
-			// continue ;
-		// }
 		ret += lstaddinfo(&list, new_info(dirent, files->name), dirent, opt);
-	}
 	apply_display_flag(&list, opt, ret);
 	if (ret > 0)
 		print_perm_denied(list, files->name, dt);

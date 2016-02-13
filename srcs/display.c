@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:39:35 by bboumend          #+#    #+#             */
-/*   Updated: 2015/03/10 16:04:41 by bchevali         ###   ########.fr       */
+/*   Updated: 2016/02/13 16:36:06 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static void			recursiv_display(t_opt *opt, t_list *list, t_ldata *data)
 		{
 			files = create_tfiles(((t_info*)tmp->content)->path, dir);
 			ft_putchar('\n');
+			ft_putstr(files->name);
+			ft_putendl(":");
 			display(opt, files, data, 1);
 			closedir(dir);
 			free(files);
@@ -80,11 +82,15 @@ void				display(t_opt *opt, t_files *files, t_ldata *dt, int is_rec)
 
 	ret = 0;
 	list = NULL;
+	(void)is_rec;
 	while ((dirent = readdir(files->dir)))
 	{
-		if (is_rec && (!ft_strcmp(dirent->d_name, ".") ||
-						!ft_strcmp(dirent->d_name, "..")))
-			continue ;
+		// if (is_rec && (!ft_strcmp(dirent->d_name, ".") ||
+						// !ft_strcmp(dirent->d_name, "..")))
+		// {
+			// printf("%s\n", dirent->d_name);
+			// continue ;
+		// }
 		ret += lstaddinfo(&list, new_info(dirent, files->name), dirent, opt);
 	}
 	apply_display_flag(&list, opt, ret);

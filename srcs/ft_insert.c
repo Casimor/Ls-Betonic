@@ -6,7 +6,7 @@
 /*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 17:29:25 by ochase            #+#    #+#             */
-/*   Updated: 2016/02/13 19:26:03 by bchevali         ###   ########.fr       */
+/*   Updated: 2016/02/15 14:34:08 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ void	lstsort(t_list **list, t_cmp cmp, int rev)
 		while (tmp_n)
 		{
 			if (cmp((t_info *)tmp->content, (t_info *)tmp_n->content, rev) < 0)
+			{
+				tmp_c = tmp->content;
+				tmp->content = tmp_n->content;
+				tmp_n->content = tmp_c;
+			}
+			else if (cmp((t_info *)tmp->content, (t_info *)tmp_n->content, rev)	== 0 && cmp_lexico((t_info *)tmp->content, (t_info *)tmp_n->content, rev) < 0)
 			{
 				tmp_c = tmp->content;
 				tmp->content = tmp_n->content;

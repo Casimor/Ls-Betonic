@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ochase <ochase@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchevali <bchevali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 17:36:19 by ochase            #+#    #+#             */
-/*   Updated: 2014/01/06 21:57:53 by ochase           ###   ########.fr       */
+/*   Updated: 2016/02/15 14:09:57 by bchevali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ char			**ft_strsplit(const char *s, char c)
 		if (c2 != i)
 			str[c2++] = ft_strsub(s, y, (j - y));
 	}
-	str[c2] = '\0';
+	str[c2] = "\0";
 	return (str);
 }
